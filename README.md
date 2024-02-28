@@ -1,4 +1,4 @@
-![Image](https://graph.org/file/9901c2070cea11d1aa194.jpg)
+![Image](https://telegra.ph/file/afcac6e64e728fd5064b7.jpg)
 
 ## WAIFU & HUSBANDO CATCHER 
 
@@ -8,8 +8,8 @@
 
 
 _**Available On Telegram As 
-[Collect Em all](https://t.me/Collect_em_AllBot) and**_
-_Ask for Help in our [Support Chat](https://t.me/Collect_em_support)_
+[Collect Em all](https://t.me/channelz_k) and**_
+_Ask for Help in our [Support Chat](https://t.me/goku_groupz)_
 
 ## About The Repository
 ● This is an Open Source Implementation of Character Catcher Bot for Telegram
@@ -67,11 +67,11 @@ use Rarity Number accordingly rarity Map
 
 ### Heroku
 - Fork The Repository
-- Go to [`config.py`](./shivu/config.py)
+- Go to [`config.py`](./Sanatan/config.py)
 - Fill the All variables and Go to heroku. and deploy Your forked Repository
 
 ### Local Deploy/VPS
-- Fill variables in [`config.py`](./shivu/config.py) 
+- Fill variables in [`config.py`](./Sanatan/config.py) 
 - Open your VPS terminal (we're using Debian based) and run the following:
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y           
