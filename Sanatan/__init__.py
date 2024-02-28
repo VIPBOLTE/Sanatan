@@ -15,7 +15,7 @@ logging.getLogger('httpx').setLevel(logging.WARNING)
 logging.getLogger("pyrate_limiter").setLevel(logging.ERROR)
 LOGGER = logging.getLogger(__name__)
 
-from shivu.config import Development as Config
+from Sanatan.config import Development as Config
 
 
 api_id = Config.api_id
@@ -32,7 +32,7 @@ sudo_users = Config.sudo_users
 OWNER_ID = Config.OWNER_ID 
 
 application = Application.builder().token(TOKEN).build()
-shivuu = Client("Shivu", api_id, api_hash, bot_token=TOKEN)
+Sanatan = Client("Sanatan", api_id, api_hash, bot_token=TOKEN)
 lol = AsyncIOMotorClient(mongo_url)
 db = lol['Character_catcher']
 collection = db['anime_characters_lol']
