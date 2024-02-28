@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler 
 
-from shivu import application, top_global_groups_collection, pm_users, OWNER_ID 
+from Sanatan import application, top_global_groups_collection, pm_users, OWNER_ID 
 
 async def broadcast(update: Update, context: CallbackContext) -> None:
     
@@ -22,7 +22,7 @@ async def broadcast(update: Update, context: CallbackContext) -> None:
 
     failed_sends = 0
 
-    for chat_id in shuyaa:
+    for chat_id in Sanatan:
         try:
             await context.bot.forward_message(chat_id=chat_id,
                                               from_chat_id=message_to_broadcast.chat_id,
