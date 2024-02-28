@@ -4,8 +4,8 @@ from html import escape
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 
-from shivu import application, PHOTO_URL, SUPPORT_CHAT, UPDATE_CHAT, BOT_USERNAME, db, GROUP_ID
-from shivu import pm_users as collection 
+from Sanatan import application, PHOTO_URL, SUPPORT_CHAT, UPDATE_CHAT, BOT_USERNAME, db, GROUP_ID
+from Sanatan import pm_users as collection 
 
 
 async def start(update: Update, context: CallbackContext) -> None:
@@ -101,7 +101,7 @@ async def button(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("UPDATES", url=f'https://t.me/{UPDATE_CHAT}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
-            [InlineKeyboardButton("SOURCE", url=f'https://github.com/MyNameIsShekhar/WAIFU-HUSBANDO-CATCHER')]
+            [InlineKeyboardButton("OWNER", url=f'https://t.me/Zindagi_hai_tere_nal')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
