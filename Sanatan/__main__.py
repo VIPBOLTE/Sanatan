@@ -10,9 +10,9 @@ from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext, MessageHandler, filters
 
-from shivu import collection, top_global_groups_collection, group_user_totals_collection, user_collection, user_totals_collection, shivuu
-from shivu import application, SUPPORT_CHAT, UPDATE_CHAT, db, LOGGER
-from shivu.modules import ALL_MODULES
+from Sanatan import collection, top_global_groups_collection, group_user_totals_collection, user_collection, user_totals_collection, Sanatan
+from Sanatan import application, SUPPORT_CHAT, UPDATE_CHAT, db, LOGGER
+from Sanatan.modules import ALL_MODULES
 
 
 locks = {}
@@ -25,7 +25,7 @@ message_counts = {}
 
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("shivu.modules." + module_name)
+    imported_module = importlib.import_module("Sanatan.modules." + module_name)
 
 
 last_user = {}
@@ -244,7 +244,7 @@ def main() -> None:
     application.run_polling(drop_pending_updates=True)
     
 if __name__ == "__main__":
-    shivuu.start()
+    Sanatan.start()
     LOGGER.info("Bot started")
     main()
 
