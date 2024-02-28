@@ -3,45 +3,45 @@
     "env": {
         "BOT_TOKEN": {
             "description": "telegram bot token here",
-            "required": true
+            "required": "@bot_father"
         },        
         "MONGO_URL": {
             "description": "mongo db url here",
-            "required": true
+            "required": "mongodb.com"
         },
         "BOT_USERNAME": {
             "description": "telegram bot username here without @",
-            "required": false
+            "required": " "
         },
         "OWNER_USERNAME": {
             "description": "Owner Username without @",
-            "required": false
+            "required": " "
         },
         "BOT_NAME": {
             "description": "Simple Bot-name. Do not use Modified Text..",
-            "required": false
+            "required": " "
         },
         "UPDATE_CHNL": {
             "description": "Your Updates Channel without @",
-            "required": false
+            "required": " "
         },
         "SUPPORT_GRP": {
             "description": "Your Support Group without @",
-            "required": false
+            "required": " "
         },
         
         "START_IMG": {
             "description": "Start Image For Bot.",
-            "required": false
+            "required": " "
         },
         
         "API_ID": {
             "description": "telegram api id here",
-            "required": true
+            "required": " "
         },
         "API_HASH": {
             "description": "telegram api hash here",
-            "required": true
+            "required": " "
         }
     },
     "addons": [
