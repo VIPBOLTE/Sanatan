@@ -65,7 +65,7 @@ async def trade(client, message):
     await message.reply_text(f"{message.reply_to_message.from_user.mention}, do you accept this trade?", reply_markup=keyboard)
 
 
-@shivuu.on_callback_query(filters.create(lambda _, __, query: query.data in ["confirm_trade", "cancel_trade"]))
+@Sanatan.on_callback_query(filters.create(lambda _, __, query: query.data in ["confirm_trade", "cancel_trade"]))
 async def on_callback_query(client, callback_query):
     receiver_id = callback_query.from_user.id
 
