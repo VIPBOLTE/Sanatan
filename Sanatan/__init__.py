@@ -15,7 +15,7 @@ logging.getLogger('httpx').setLevel(logging.WARNING)
 logging.getLogger("pyrate_limiter").setLevel(logging.ERROR)
 LOGGER = logging.getLogger(__name__)
 
-from Sanatan.Config import Development as Config
+from Sanatan.config import Development as Config
 
 
 api_id = Config.api_id
@@ -23,6 +23,7 @@ api_hash = Config.api_hash
 TOKEN = Config.TOKEN
 GROUP_ID = Config.GROUP_ID
 mongo_url = Config.mongo_url 
+CHARA_CHANNEL_ID = Config.CHARA_CHANNEL_ID
 PHOTO_URL = Config.PHOTO_URL 
 SUPPORT_CHAT = Config.SUPPORT_CHAT 
 UPDATE_CHAT = Config.UPDATE_CHAT
