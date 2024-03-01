@@ -12,7 +12,7 @@ from telegram.ext import CommandHandler, CallbackContext, MessageHandler, filter
 
 from Sanatan import collection, top_global_groups_collection, group_user_totals_collection, user_collection, user_totals_collection, Sanatan
 from Sanatan import application, SUPPORT_CHAT, UPDATE_CHAT, db, LOGGER
-from Sanatan.Modules import ALL_MODULES
+from Sanatan.Module import ALL_MODULES
 
 
 locks = {}
