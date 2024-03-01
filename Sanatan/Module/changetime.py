@@ -7,7 +7,7 @@ from pyrogram.types import Message
 ADMINS = [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]
 
 
-@Zindagi_hai_tere_nal.on_message(filters.command("changetime"))
+@Sanatan.on_message(filters.command("changetime"))
 async def change_time(client: Client, message: Message):
     
     user_id = message.from_user.id
