@@ -15,7 +15,7 @@ logging.getLogger('httpx').setLevel(logging.WARNING)
 logging.getLogger("pyrate_limiter").setLevel(logging.ERROR)
 LOGGER = logging.getLogger(__name__)
 
-from Sanatan.config.py import Development as config
+from Sanatan.Config.py import Development as Config
 
 
 api_id = Config.api_id
