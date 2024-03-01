@@ -1,6 +1,6 @@
 from pymongo import  ReturnDocument
 from pyrogram.enums import ChatMemberStatus, ChatType
-from Sanatan import user_totals_collection, shivuu
+from Sanatan import user_totals_collection, Sanatan
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
