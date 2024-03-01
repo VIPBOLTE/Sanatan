@@ -22,7 +22,6 @@ api_id = Config.api_id
 api_hash = Config.api_hash
 TOKEN = Config.TOKEN
 GROUP_ID = Config.GROUP_ID
-CHANNEL_ID = Config.CHANNEL_ID 
 mongo_url = Config.mongo_url 
 PHOTO_URL = Config.PHOTO_URL 
 SUPPORT_CHAT = Config.SUPPORT_CHAT 
