@@ -119,7 +119,7 @@ async def on_callback_query(client, callback_query):
 pending_gifts = {}
 
 
-@shivuu.on_message(filters.command("gift"))
+@Sanatan.on_message(filters.command("gift"))
 async def gift(client, message):
     sender_id = message.from_user.id
 
