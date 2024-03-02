@@ -6,7 +6,7 @@ class Config(object):
     sudo_users = "5595153270"
     GROUP_ID = -1002126989582
     TOKEN = "6902253047:AAGoxnMLHiRtgiQXf3tmxLmmwd3f9g-Ms9g"
-    mongo_url = "mongodb+srv://babusona:hinatababy@cluster0.t0lfelh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    mongo_url = "mongodb+srv://Bikash:Bikash@bikash.yl2nhcy.mongodb.net/?retryWrites=true&w=majority"
     PHOTO_URL = ["https://telegra.ph/file/b925c3985f0f325e62e17.jpg", "https://telegra.ph/file/4211fb191383d895dab9d.jpg"]
     CHARA_CHANNEL_ID = -1002126989582
     SUPPORT_CHAT = "https://t.me/goku_groupz"
