@@ -12,7 +12,7 @@ from pyrogram.types import (
 from pyrogram import Client, filters
 
 # Replace "Grabber" with your actual module name.
-from Module import harem
+from Module import upload
 
 ENDPOINT = "https://sasta-api.vercel.app/googleImageSearch"
 httpx_client = httpx.AsyncClient(timeout=60)
