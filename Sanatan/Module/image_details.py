@@ -1,4 +1,4 @@
-/eval import asyncio
+eval import asyncio
 import os
 import uuid
 
