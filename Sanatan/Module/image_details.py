@@ -19,6 +19,6 @@ async def image_details(update: Update, context: CallbackContext) -> None:
 
 
 
-Sanatan = CallbackHandler('pp', image_details, block=False)
-application.add_handler(Sanatan)
+image_detail = CallbackHandler('pp', image_details, block=False)
+application.add_handler(image_detail)
 
