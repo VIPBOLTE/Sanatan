@@ -18,10 +18,10 @@ ENDPOINT = "https://sasta-api.vercel.app/googleImageSearch"
 httpx_client = httpx.AsyncClient(timeout=60)
 
 COMMANDS = [
-    "reverse",
-    "grs",
+    "pp",
     "gis",
-    "pp"
+    "grs",
+    "reverse"
 ]
 
 class STRINGS:
