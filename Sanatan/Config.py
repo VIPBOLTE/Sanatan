@@ -9,7 +9,7 @@ class Config(object):
     mongo_url = "mongodb+srv://Bikash:Bikash@bikash.yl2nhcy.mongodb.net/?retryWrites=true&w=majority"
     PHOTO_URL = ["https://telegra.ph/file/b925c3985f0f325e62e17.jpg", "https://telegra.ph/file/4211fb191383d895dab9d.jpg"]
     CHARA_CHANNEL_ID = -1002117539029
-    SUPPORT_CHAT = ""ℕ𝔸ℝ𝕌𝕋𝕆 (𝟟𝕥𝕙 ℍ𝕆ℂ𝕂𝔸𝔾𝔼)"
+    SUPPORT_CHAT = "ℕ𝔸ℝ𝕌𝕋𝕆 (𝟟𝕥𝕙 ℍ𝕆ℂ𝕂𝔸𝔾𝔼)"
     UPDATE_CHAT = "ℕ𝔸ℝ𝕌𝕋𝕆 (𝟟𝕥𝕙 ℍ𝕆ℂ𝕂𝔸𝔾𝔼) updates"
     BOT_USERNAME = "@GOKU_CHATbot"
     api_id = 13220924
