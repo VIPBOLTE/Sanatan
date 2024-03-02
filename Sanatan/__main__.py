@@ -245,8 +245,6 @@ def main() -> None:
     
 if __name__ == "__main__":
     Sanatan.start()
-    LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    telethn.start(bot_token=TOKEN)
-    pbot.start()
+    LOGGER.info("Bot started")
     main()
 
