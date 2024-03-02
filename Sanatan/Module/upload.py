@@ -28,6 +28,8 @@ async def get_next_sequence_number(sequence_name):
         return 0
     return sequence_document['sequence_value']
 
+
+
 async def upload(update: Update, context: CallbackContext) -> None:
     if str(update.effective_user.id) not in sudo_users:
         await update.message.reply_text('Ask My Owner...')
@@ -52,7 +54,7 @@ async def upload(update: Update, context: CallbackContext) -> None:
         try:
             rarity = rarity_map[int(args[3])]
         except KeyError:
-            await update.message.reply_text('Invalid rarity. Please use 1, 2, 3, 4, or 5.')
+            await update.message.reply_text('Invalid rarity. Please use 1, 2, 3, 4, 5, 6, or 7.')
             return
 
         id = str(await get_next_sequence_number('character_id')).zfill(2)
@@ -82,6 +84,8 @@ async def upload(update: Update, context: CallbackContext) -> None:
     except Exception as e:
         await update.message.reply_text(f'Character Upload Unsuccessful. Error: {str(e)}\nIf you think this is a source error, forward to: {SUPPORT_CHAT}')
 
+
+
 async def delete(update: Update, context: CallbackContext) -> None:
     if str(update.effective_user.id) not in sudo_users:
         await update.message.reply_text('Ask my Owner to use this Command...')
@@ -104,6 +108,8 @@ async def delete(update: Update, context: CallbackContext) -> None:
             await update.message.reply_text('Deleted Successfully from db, but character not found In Channel')
     except Exception as e:
         await update.message.reply_text(f'{str(e)}')
+
+
 
 async def update(update: Update, context: CallbackContext) -> None:
     if str(update.effective_user.id) not in sudo_users:
@@ -166,6 +172,8 @@ async def update(update: Update, context: CallbackContext) -> None:
         await update.message.reply_text('Updated Done in Database.... But sometimes it Takes Time to edit Caption in Your Channel..So wait..')
     except Exception as e:
         await update.message.reply_text(f'I guess did not added bot in channel.. or character uploaded Long time ago.. Or character not exits.. orr Wrong id')
+
+
 
 async def check(update: Update, context: CallbackContext) -> None:    
      try:
