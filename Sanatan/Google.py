@@ -1,5 +1,4 @@
-
-import asyncio
+/eval import asyncio
 import os
 import uuid
 
@@ -13,7 +12,7 @@ from pyrogram.types import (
 from pyrogram import Client, filters
 
 # Replace "Grabber" with your actual module name.
-from Module import Sanatan
+from Sanatan import app as Grabberu
 
 ENDPOINT = "https://sasta-api.vercel.app/googleImageSearch"
 httpx_client = httpx.AsyncClient(timeout=60)
@@ -42,11 +41,11 @@ class STRINGS:
 🔗 <b>Page Link:</b> <a href="{search_url}">Link</a>
 
 ⌛️ <b>Time Taken:</b> <code>{time_taken}</code> ms.
-🧑‍💻 <b>Credits:</b> @sukuna201
+🧑‍💻 <b>Credits:</b> @tanjiro_x_coder
     """
     OPEN_SEARCH_PAGE = "↗️ Open Search Page"
 
-@Sanatan.on_message(filters.command(COMMANDS))
+@Grabberu.on_message(filters.command(COMMANDS))
 async def on_google_lens_search(client: Client, message: Message) -> None:
     if len(message.command) > 1:
         image_url = message.command[1]
