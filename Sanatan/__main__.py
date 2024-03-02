@@ -245,6 +245,6 @@ def main() -> None:
     
 if __name__ == "__main__":
     @Sanatan.start()
-    LOGGER.info ("Bot started")
+    LOGGER.info("Bot started")
     main()
 
