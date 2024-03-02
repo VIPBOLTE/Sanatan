@@ -9,7 +9,7 @@ from pyrogram.types import (
     InlineKeyboardButton,
     InlineKeyboardMarkup
 )
-from pyrogram import Client, filters
+from Sanatan import Client, filters
 
 # Replace "Grabber" with your actual module name.
 from Sanatan import app as Grabberu
