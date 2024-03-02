@@ -132,7 +132,7 @@ async def update(update: Update, context: CallbackContext) -> None:
         if args[1] in ['name', 'anime']:
             new_value = args[2].replace('-', ' ').title()
         elif args[1] == 'rarity':
-            rarity_map = {1: "⚪ Common", 2: "🟣 Rare", 3: "🟡 Legendary", 4: "🟢 Medium", 5: "💮 Special edition", 6 "🔮 Limited Edition", 7 "💎 Fantastic 😶"}
+            rarity_map = {1: "⚪ Common", 2: "🟣 Rare", 3: "🟡 Legendary", 4: "🟢 Medium", 5: "💮 Special edition", 6: "🔮 Limited Edition", 7: "💎 Fantastic 😶"}
             try:
                 new_value = rarity_map[int(args[2])]
             except KeyError:
