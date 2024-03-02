@@ -1,5 +1,5 @@
 from telegram import Update
-from image_detail.py import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+from image_details.py import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 
 # Define your Telegram Bot API token here
 TOKEN = "your_telegram_bot_token_here"
