@@ -5,7 +5,7 @@ class Config(object):
     OWNER_ID = "5595153270"
     sudo_users = "5595153270", "6092692622"
     GROUP_ID = -1002082803552
-    TOKEN = "6902253047:AAGoxnMLHiRtgiQXf3tmxLmmwd3f9g-Ms9g"
+    TOKEN = "6902253047:AAEGGTJ4LzGe0xySFmZJQp_9WbdjCEAnjsY"
     mongo_url = "mongodb+srv://Bikash:Bikash@bikash.yl2nhcy.mongodb.net/?retryWrites=true&w=majority"
     PHOTO_URL = ["https://telegra.ph/file/b925c3985f0f325e62e17.jpg", "https://telegra.ph/file/4211fb191383d895dab9d.jpg"]
     CHARA_CHANNEL_ID = -1002117539029
