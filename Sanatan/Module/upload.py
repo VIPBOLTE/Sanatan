@@ -167,6 +167,37 @@ async def update(update: Update, context: CallbackContext) -> None:
     except Exception as e:
         await update.message.reply_text(f'I guess did not added bot in channel.. or character uploaded Long time ago.. Or character not exits.. orr Wrong id')
 
+async def check(update: Update, context: CallbackContext) -> None:    
+     try:
+        args = context.args
+        if len(context.args) != 1:
+            await update.message.reply_text('Incorrect format. Please use: /check id')
+            return
+            
+        character_id = context.args[0]
+         # Get character name from the command arguments
+        
+        character = await collection.find_one({'id': args[0]}) 
+            
+        if character:
+            # If character found, send the information along with the image URL
+            message = f"<b>Character Name:</b> {character['name']}\n" \
+                      f"<b>Anime Name:</b> {character['anime']}\n" \
+                      f"<b>Rarity:</b> {character['rarity']}\n" \
+                      f"<b>ID:</b> {character['id']}\n"
+
+            await context.bot.send_photo(chat_id=update.effective_chat.id,
+                                         photo=character['img_url'],
+                                         caption=message,
+                                         parse_mode='HTML')
+        else:
+            await update.message.reply_text("Character not found.")
+     except Exception as e:
+        await update.message.reply_text(f"Error occurred: {e}")
+
+
+CHECK_HANDLER = CommandHandler('check', check, block=False)
+application.add_handler(CHECK_HANDLER)
 UPLOAD_HANDLER = CommandHandler('upload', upload, block=False)
 application.add_handler(UPLOAD_HANDLER)
 DELETE_HANDLER = CommandHandler('delete', delete, block=False)
