@@ -1,5 +1,5 @@
 from telegram import Update
-from telegram.exe import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+from image_details import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 from Sanatan import application, sudo_users, collection, db, CHARA_CHANNEL_ID, SUPPORT_CHAT
  
 
