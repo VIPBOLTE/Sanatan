@@ -18,5 +18,5 @@ async def image_details(update: Update, context: CallbackContext) -> None:
 
 START_HANDLER = CommandHandler('start', start, block=False)
 application.add_handler(START_HANDLER)
-PP_HANDLER = CommandHandler('pp', image_detail, block=False)
+PP_HANDLER = CommandHandler('pp', image_details, block=False)
 application.add_handler(PP_HANDLER) 
