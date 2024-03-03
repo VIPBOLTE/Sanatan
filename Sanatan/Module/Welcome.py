@@ -1,18 +1,18 @@
 
-class CoinModule:
+class HaremModule:
     def __init__(self):
-        self.coins = 0
-        self.hareems = 0
+        self.grabbed_harem = 0
+        self.total_coins = 0
 
-    def grab_hareem(self):
-        self.hareems += 1
-        self.coins += 50
-        return f"Grabbed a hareem! You now have {self.hareems} hareems and {self.coins} coins."
+    def grab_harem(self):
+        self.grabbed_harem += 1
+        self.total_coins += 50
+        return f"Harem grabbed! Total coins: {self.total_coins}"
 
-    def check_coins(self):
-        return f"You currently have {self.coins} coins."
+    def get_coins(self):
+        return f"Total coins: {self.total_coins}"
 
-# Example usage:
-coin_module = CoinModule()
-print(coin_module.grab_hareem())
-print(coin_module.check_coins())
+# Example usage
+harem_module = HaremModule()
+print(harem_module.grab_harem())
+print(harem_module.get_coins())
