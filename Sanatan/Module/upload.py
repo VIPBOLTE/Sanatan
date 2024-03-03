@@ -4,7 +4,7 @@ from pymongo import ReturnDocument
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
 
-from Sanatan import application, sudo_users, collection, db, CHARA_CHANNEL_ID, SUPPORT_CHAT
+from Sanatan import application, sudo_users, collection, db, UPDATE_CHAT, SUPPORT_CHAT
 
 
 WRONG_FORMAT_TEXT = """Wrong ❌ format...  eg. /upload Img_url muzan-kibutsuji Demon-slayer 3
