@@ -1,22 +1,26 @@
 
-import random
-
-class HaremGame:
+class Harem:
     def __init__(self):
         self.coins = 0
 
-    def grab_harem(self):
-        harem = random.randint(1, 10)
-        if harem == 1:
-            self.coins += 50
-            print("Congratulations! You grabbed a harem and earned 50 coins.")
-        else:
-            print("Oops! You missed the harem. Try again.")
+    def grab(self):
+        self.coins += 50
+        print("You grabbed 1 harem and earned 50 coins.")
 
-    def get_coins(self):
+    def coin_count(self):
         return self.coins
 
-# Example of how to use the HaremGame module
-game = HaremGame()
-game.grab_harem()
-print("Total coins earned: ", game.get_coins())
+harem = Harem()
+
+while True:
+    command = input("Enter a command (grab/coin/exit): ")
+    
+    if command == 'grab':
+        harem.grab()
+    elif command == 'coin':
+        print(f"You have {harem.coin_count()} coins.")
+    elif command == 'exit':
+        print("Exiting the program.")
+        break
+    else:
+        print("Invalid command. Please try again.")
