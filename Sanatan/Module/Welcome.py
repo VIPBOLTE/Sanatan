@@ -1,26 +1,18 @@
 
-class Harem:
+class CoinModule:
     def __init__(self):
         self.coins = 0
+        self.harem = 0
 
-    def grab(self):
+    def grab_hareem(self):
+        self.harem += 1
         self.coins += 50
-        print("You grabbed 1 harem and earned 50 coins.")
+        return f"Grabbed a harem! You now have {self.harem} harem and {self.coins} coins."
 
-    def coin_count(self):
-        return self.coins
+    def check_coins(self):
+        return f"You currently have {self.coins} coins."
 
-harem = Harem()
-
-while True:
-    command = input("Enter a command (grab/coin/exit): ")
-    
-    if command == 'grab':
-        harem.grab()
-    elif command == 'coin':
-        print(f"You have {harem.coin_count()} coins.")
-    elif command == 'exit':
-        print("Exiting the program.")
-        break
-    else:
-        print("Invalid command. Please try again.")
+# Example usage:
+coin_module = CoinModule()
+print(coin_module.grab_harem())
+print(coin_module.check_coins())
