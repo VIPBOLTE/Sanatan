@@ -1,20 +1,30 @@
-
-class HaremModule:
+class Harem:
     def __init__(self):
-        self.harem_count = 0
-        self.coin_count = 0
+        self.grabbed_characters = []
+        self.coins = 0
 
-    def grab_harem(self):
-        self.harem_count += 1
-        self.coin_count += 50
-        return f"Harem grabbed! You now have {self.harem_count} harem and {self.coin_count} coins."
+    def grab_character(self):
+        # Logic to grab a character from somewhere
+        self.grabbed_characters.append("New Character")
+        self.coins += 50
 
-    def get_coin_count(self):
-        return f"You currently have {self.coin_count} coins."
+    def show_harem(self):
+        print("Your Harem:")
+        for character in self.grabbed_characters:
+            print(character)
+    
+    def show_coins(self):
+        print(f"You have {self.coins} coins in your account.")
 
-# Example Usage
-module = HaremModule()
-print(module.grab_harem())
-print(module.get_coin_count())
-print(module.grab_harem())
-print(module.get_coin_count())
+if __name__ == "__main__":
+    my_harem = Harem()
+
+    # Grab a character and earn coins
+    my_harem.grab_character()
+    my_harem.show_harem()
+    my_harem.show_coins()
+
+    # Grab another character and earn coins
+    my_harem.grab_character()
+    my_harem.show_harem()
+    my_harem.show_coins()
