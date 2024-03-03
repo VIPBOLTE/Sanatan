@@ -1,18 +1,20 @@
 
 class HaremModule:
     def __init__(self):
-        self.grabbed_harem = 0
-        self.total_coins = 0
+        self.harem_count = 0
+        self.coin_count = 0
 
     def grab_harem(self):
-        self.grabbed_harem += 1
-        self.total_coins += 50
-        return f"Harem grabbed! Total coins: {self.total_coins}"
+        self.harem_count += 1
+        self.coin_count += 50
+        return f"Harem grabbed! You now have {self.harem_count} harem and {self.coin_count} coins."
 
-    def get_coins(self):
-        return f"Total coins: {self.total_coins}"
+    def get_coin_count(self):
+        return f"You currently have {self.coin_count} coins."
 
-# Example usage
-harem_module = HaremModule()
-print(harem_module.grab_harem())
-print(harem_module.get_coins())
+# Example Usage
+module = HaremModule()
+print(module.grab_harem())
+print(module.get_coin_count())
+print(module.grab_harem())
+print(module.get_coin_count())
