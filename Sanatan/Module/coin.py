@@ -1,3 +1,5 @@
+import random
+import html
 import logging 
 from datetime import datetime, timedelta
 
@@ -5,6 +7,9 @@ from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
 
 from Sanatan import application, db
+from Sanatan import (application, PHOTO_URL, OWNER_ID,
+                    user_collection, top_global_groups_collection, top_global_groups_collection, 
+                    group_user_totals_collection)
 
 logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
@@ -95,6 +100,31 @@ async def weekly_reward(update: Update, context: CallbackContext) -> None:
         LOGGER.error(f"Error occurred: {e}")
         await update.message.reply_text(f"Error occurred: {e}")
         
+async def top_users_by_coins(update: Update, context: CallbackContext) -> None:
+    cursor = wallet_collection.aggregate([
+        {"$project": {"user_id": 1, "coins": 1}},
+        {"$sort": {"coins": -1}},
+        {"$limit": 10}
+    ])
+    top_users_data = await cursor.to_list(length=10)
+
+    leaderboard_message = "<b>TOP 10 USERS WITH MOST COINS</b>\n\n"
+
+    for i, user_data in enumerate(top_users_data, start=1):
+        user_id = user_data.get('user_id', 'Unknown')
+        coins = user_data.get('coins', 0)
+
+        try:
+            user = await context.bot.get_chat(user_id)
+            username = user.username if user.username else user.first_name
+            leaderboard_message += f"{i}. <a href=\"https://t.me/{username}\"><b>{username}</b></a> ➾ <b>{coins}</b>\n"
+
+        except Exception as e:
+            LOGGER.error(f"Error getting user info: {e}")
+    
+    photo_url = random.choice(PHOTO_URL)
+    await update.message.reply_photo(photo=photo_url, caption=leaderboard_message, parse_mode='HTML')
+
 
 # Command handlers
 CHECK_BALANCE_HANDLER = CommandHandler('balance', check_balance)
@@ -105,3 +135,6 @@ application.add_handler(DAILY_REWARD_HANDLER)
 
 WEEKLY_REWARD_HANDLER = CommandHandler('weekly', weekly_reward)
 application.add_handler(WEEKLY_REWARD_HANDLER)
+
+TOPS_HANDLER = CommandHandler('cointop', top_users_by_coins, block=False)
+application.add_handler(TOPS_HANDLER)
