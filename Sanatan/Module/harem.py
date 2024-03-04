@@ -9,7 +9,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 from Sanatan import collection, user_collection, application
 
-async def harem(update: update, context: CallbackContext, page=0, mode='all') -> None:
+async def harem(update: Update, context: CallbackContext, page=0, mode='all') -> None:
     user_id = update.effective_user.id
 
     user = await user_collection.find_one({'id': user_id})
