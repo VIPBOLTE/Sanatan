@@ -103,4 +103,4 @@ DAILY_REWARD_HANDLER = CommandHandler('daily', daily_reward)
 application.add_handler(DAILY_REWARD_HANDLER)
 
 WEEKLY_REWARD_HANDLER = CommandHandler('weekly', weekly_reward)
-application.add_handler(WEE
+application.add_handler(WEEKLY_REWARD_HANDLER)
