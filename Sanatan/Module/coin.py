@@ -1,10 +1,9 @@
-import logging
 from datetime import datetime, timedelta
 
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
 
-from Sanatan import application, db
+from shivu import application, db
 
 logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
@@ -51,11 +50,15 @@ async def daily_reward(update: Update, context: CallbackContext) -> None:
 
         if user_wallet:
             last_claimed = user_wallet.get("last_daily_claimed")
-            if last_claimed and datetime.now() - last_claimed < timedelta(days=1):
+            if last_claimed and last_claimed.date() == datetime.now().date():
                 await update.message.reply_text("You have already claimed your daily reward.")
                 return
 
             await add_coins(user_id, 40)
+            await wallet_collection.update_one(
+                {"user_id": user_id},
+                {"$set": {"last_daily_claimed": datetime.now()}},
+            )
             await update.message.reply_text("You have claimed your daily reward. You earned 40 coins.")
         else:
             await wallet_collection.insert_one({"user_id": user_id, "coins": 40, "last_daily_claimed": datetime.now()})
@@ -64,6 +67,8 @@ async def daily_reward(update: Update, context: CallbackContext) -> None:
         LOGGER.error(f"Error occurred: {e}")
         await update.message.reply_text(f"Error occurred: {e}")
 
+
+
 async def weekly_reward(update: Update, context: CallbackContext) -> None:
     try:
         user_id = str(update.effective_user.id)
@@ -71,17 +76,24 @@ async def weekly_reward(update: Update, context: CallbackContext) -> None:
 
         if user_wallet:
             last_claimed = user_wallet.get("last_weekly_claimed")
-            if last_claimed and datetime.now() - last_claimed < timedelta(weeks=1):
+            start_of_week = datetime.now().date() - timedelta(days=datetime.now().weekday())
+            if last_claimed and last_claimed.date() >= start_of_week:
                 await update.message.reply_text("You have already claimed your weekly reward.")
                 return
 
             await add_coins(user_id, 250)
+            await wallet_collection.update_one(
+                {"user_id": user_id},
+                {"$set": {"last_weekly_claimed": datetime.now()}},
+            )
             await update.message.reply_text("You have claimed your weekly reward. You earned 250 coins.")
         else:
             await wallet_collection.insert_one({"user_id": user_id, "coins": 250, "last_weekly_claimed": datetime.now()})
             await update.message.reply_text("You have claimed your weekly reward. You earned 250 coins.")
     except Exception as e:
+        LOGGER.error(f"Error occurred: {e}")
         await update.message.reply_text(f"Error occurred: {e}")
+        
 
 # Command handlers
 CHECK_BALANCE_HANDLER = CommandHandler('balance', check_balance)
@@ -91,4 +103,4 @@ DAILY_REWARD_HANDLER = CommandHandler('daily', daily_reward)
 application.add_handler(DAILY_REWARD_HANDLER)
 
 WEEKLY_REWARD_HANDLER = CommandHandler('weekly', weekly_reward)
-application.add_handler(WEEKLY_REWARD_HANDLER)
+application.add_handler(WEE
