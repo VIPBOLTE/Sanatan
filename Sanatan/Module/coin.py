@@ -5,7 +5,7 @@ from telegram.ext import CommandHandler, CallbackContext
 
 from Sanatan import application, db
 
-LOGGING.basicConfig(
+logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
     level=logging.INFO,
