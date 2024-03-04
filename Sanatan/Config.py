@@ -7,7 +7,7 @@ class Config(object):
     GROUP_ID = -1002126989582
     TOKEN = "6902253047:AAEGGTJ4LzGe0xySFmZJQp_9WbdjCEAnjsY"
     mongo_url = "mongodb+srv://babusona:hinatababy@cluster0.t0lfelh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-    PHOTO_URL = ["https://telegra.ph/file/b925c3985f0f325e62e17.jpg", "https://telegra.ph/file/4211fb191383d895dab9d.jpg"]
+    PHOTO_URL = ["https://telegra.ph/file/afcac6e64e728fd5064b7.jpg", "https://telegra.ph/file/afcac6e64e728fd5064b7.jpg"]
     SUPPORT_CHAT = "https://t.me/goku_groupz"
     UPDATE_CHAT = "https://t.me/channelz_k"
     BOT_USERNAME = "@GOKU_CHATbot"
