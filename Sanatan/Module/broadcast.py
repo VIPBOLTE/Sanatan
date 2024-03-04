@@ -6,8 +6,8 @@ from Sanatan import application, top_global_groups_collection, pm_users, OWNER_I
 async def broadcast(update: Update, context: CallbackContext) -> None:
     
     if update.effective_user.id != OWNER_ID:
-        await update.message.reply_text("You are not authorized to use this command.")
-        return
+    await update.message.reply_text("Sorry, this command is restricted to authorized users only.")
+    return
 
     message_to_broadcast = update.message.reply_to_message
 
