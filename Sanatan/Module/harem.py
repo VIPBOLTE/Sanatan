@@ -1,3 +1,14 @@
+from telegram import Update
+from itertools import groupby
+import math
+from html import escape 
+import random
+
+from telegram.ext import CommandHandler, CallbackContext, CallbackQueryHandler
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+
+from Sanatan import collection, user_collection, application
+
 async def harem(update: harem, context: CallbackContext, page=0, mode='all') -> None:
     user_id = update.effective_user.id
 
