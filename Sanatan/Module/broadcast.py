@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler 
 
-from Config import application, top_global_groups_collection, pm_users, OWNER_ID 
+from Sanatan.Config import application, top_global_groups_collection, pm_users, OWNER_ID 
 
 async def broadcast(update: Update, context: CallbackContext) -> None:
     
