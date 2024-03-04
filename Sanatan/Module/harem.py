@@ -1,4 +1,4 @@
-async def harem(update: Sanatan, context: CallbackContext, page=0, mode='all') -> None:
+async def harem(update: harem, context: CallbackContext, page=0, mode='all') -> None:
     user_id = update.effective_user.id
 
     user = await user_collection.find_one({'id': user_id})
