@@ -47,7 +47,7 @@ async def start(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("SOURCE", url=f'https://github.com/ishu9805')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
-        photo_url = random.choice(PHOTO_URL)
+        video_url = random.choice(VIDEO_URL)
 
         await context.bot.send_photo(chat_id=update.effective_chat.id, photo=photo_url, caption=caption, reply_markup=reply_markup, parse_mode='markdown')
 
