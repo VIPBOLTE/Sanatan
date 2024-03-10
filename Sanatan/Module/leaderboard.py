@@ -5,7 +5,7 @@ import html
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
 
-from Sanatan import (application, PHOTO_URL, OWNER_ID,
+from Sanatan import (application, VIDEO_URL, OWNER_ID,
                     user_collection, top_global_groups_collection, top_global_groups_collection, 
                     group_user_totals_collection)
 
