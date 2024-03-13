@@ -20,7 +20,7 @@ from Sanatan import (application, VIDEO_URL, OWNER_ID,
 
 shops_collection = db["shops"]
 # Owner ID
-OWNER_ID = "6257270528"
+OWNER_ID = "5595153270"
 
 # Logging configuration
 logging.basicConfig(
