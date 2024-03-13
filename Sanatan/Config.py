@@ -10,7 +10,7 @@ class Config(object):
     VIDEO_URL = ["https://telegra.ph/file/2f56b2568b3f92abcf55e.mp4"]
     SUPPORT_CHAT = "https://t.me/goku_groupz"
     UPDATE_CHAT = "https://t.me/channelz_k"
-    BOT_USERNAME = "@GOKU_CHATbot"
+    BOT_USERNAME = "@Husbandobot"
     api_id = 13220924
     api_hash = "5542f1adb4a900f648c985a6694fc3ed"
     
