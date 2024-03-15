@@ -11,8 +11,8 @@ class Config(object):
     SUPPORT_CHAT = "https://t.me/goku_groupz"
     UPDATE_CHAT = "https://t.me/channelz_k"
     BOT_USERNAME = "@Husbandobot"
-    api_id = 13220924
-    api_hash = "5542f1adb4a900f648c985a6694fc3ed"
+    API_ID = 13220924
+    API_HASH = "5542f1adb4a900f648c985a6694fc3ed"
     
     STRICT_GBAN = True
     ALLOW_CHATS = True
