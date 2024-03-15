@@ -18,11 +18,11 @@ LOGGER = logging.getLogger(__name__)
 from Sanatan.Config import Development as Config
 
 
-api_id = Config.api_id
-api_hash = Config.api_hash
+API_ID= Config.API_ID
+API_HASH= Config.API_HASH
 TOKEN = Config.TOKEN
 GROUP_ID = Config.GROUP_ID
-mongo_url = Config.mongo_url 
+MONGO_URL= Config.MONGO_URL
 VIDEO_URL = Config.VIDEO_URL 
 SUPPORT_CHAT = Config.SUPPORT_CHAT 
 UPDATE_CHAT = Config.UPDATE_CHAT
