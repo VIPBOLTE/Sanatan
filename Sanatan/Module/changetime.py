@@ -12,7 +12,7 @@ async def change_time(client: Client, message: Message):
     
     user_id = message.from_user.id
     chat_id = message.chat.id
-    member = await shivuu.get_chat_member(chat_id,user_id)
+    member = await SANATAN.get_chat_member(chat_id,user_id)
         
 
     if member.status not in ADMINS :
@@ -26,7 +26,7 @@ async def change_time(client: Client, message: Message):
             return
 
         new_frequency = int(args[1])
-        if new_frequency < 2:
+        if new_frequency < q:
             await message.reply_text('The message frequency must be greater than or equal to 100.')
             return
 
