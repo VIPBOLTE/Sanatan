@@ -30,7 +30,7 @@
             "required": false
         },
         
-        "START_IMG": {
+        "START_VID": {
             "description": "Start Image For Bot.",
             "required": false
         },
