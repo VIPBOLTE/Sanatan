@@ -89,9 +89,21 @@ async def send_image(update: Update, context: CallbackContext) -> None:
     if len(sent_characters[chat_id]) == len(all_characters):
         sent_characters[chat_id] = []
 
-    character = random.choice([c for c in all_characters if c['id'] not in sent_characters[chat_id]])
+    rarities = ['Common', 'Rare', 'Legendary', 'Medium', 'Special edition', 'Limited Edition']
+    spawn_rates = [6, 5, 4, 4, 3, 2]  # Adjust spawn rates based on rarity
+    
+    # Create a list of characters based on spawn rates, excluding Premium Edition
+    characters_to_spawn = []
+    for rarity, rate in zip(rarities, spawn_rates):
+        if rarity != 'Premium Edition':
+            characters_to_spawn.extend([c for c in all_characters if c.get('id') not in sent_characters[chat_id] and c.get('rarity') == rarity] * rate)
 
-    sent_characters[chat_id].append(character['id'])
+    if not characters_to_spawn:
+        characters_to_spawn = all_characters
+
+    character = random.choice(characters_to_spawn)
+
+    sent_characters[chat_id].append(character.get('id'))
     last_characters[chat_id] = character
 
     if chat_id in first_correct_guesses:
@@ -102,7 +114,6 @@ async def send_image(update: Update, context: CallbackContext) -> None:
         photo=character['img_url'],
         caption=f"""A New {character['rarity']} Character Appeared...\n/guess Character Name and add in Your Harem""",
         parse_mode='Markdown')
-
 
 async def guess(update: Update, context: CallbackContext) -> None:
     chat_id = update.effective_chat.id
