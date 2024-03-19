@@ -88,7 +88,7 @@ async def leaderboard(update: Update, context: CallbackContext) -> None:
         character_count = len(user.get('characters', []))  # Calculate character count
         leaderboard_message += f'{i}. <a href="https://t.me/{username}"><b>{first_name}</b></a> ➾ <b>{character_count}</b>\n'
     
-    photo_url = random.choice(PHOTO_URL)
+    photo_url = random.choice(VIDEO_URL)
 
     await update.message.reply_photo(photo=photo_url, caption=leaderboard_message, parse_mode='HTML')
 
