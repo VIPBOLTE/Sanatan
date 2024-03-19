@@ -147,7 +147,7 @@ async def top_users_by_coins(update: Update, context: CallbackContext) -> None:
                 continue  # Skip this user and proceed to the next one
 
         # Choose a random photo URL
-        photo_url = random.choice(PHOTO_URL)
+        photo_url = random.choice(VIDEO_URL)
 
         # Send photo along with the leaderboard message
         await update.message.reply_photo(photo=photo_url, caption=leaderboard_message, parse_mode='HTML')
