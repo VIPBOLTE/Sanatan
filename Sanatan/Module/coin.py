@@ -157,86 +157,6 @@ async def top_users_by_coins(update: Update, context: CallbackContext) -> None:
         await update.message.reply_text("An error occurred while fetching top users by coins.")
 
 
-async def remove_coins(update: Update, context: CallbackContext) -> None:
-    try:
-        if int(update.effective_user.id) != 6257270528:
-            await update.message.reply_text("You are not authorized to perform this action.")
-            return
-
-        # Parse user_id and coins from the command arguments
-        args = context.args
-        if len(args) != 2:
-            await update.message.reply_text("Invalid format. Use: /removecoins <user_id> <amount>")
-            return
-
-        user_id = args[0]
-        try:
-            amount = int(args[1])
-        except ValueError:
-            await update.message.reply_text("Invalid amount. Please provide a valid number.")
-            return
-
-        # Retrieve user's wallet
-        user = await user_collection.find_one({"id": int(user_id)})
-
-        if not user:
-            await update.message.reply_text("User not found.")
-            return
-
-        current_balance = user.get("coins", 0)
-        new_balance = max(0, current_balance - amount)
-
-        # Update user's balance
-        await user_collection.update_one({"id": int(user_id)}, {"$set": {"coins": new_balance}})
-
-        await update.message.reply_text(f"Successfully removed {amount} coins from user {user_id}. New balance: {new_balance}")
-
-    except Exception as e:
-        LOGGER.error(f"Error occurred: {e}")
-        await update.message.reply_text("An error occurred while removing coins. Please try again later.")
-
-
-async def give_coins(update: Update, context: CallbackContext) -> None:
-    try:
-        if int(update.effective_user.id) != 6257270528:
-            await update.message.reply_text("You are not authorized to perform this action.")
-            return
-
-        # Parse user_id and coins from the command arguments
-        args = context.args
-        if len(args) != 2:
-            await update.message.reply_text("Invalid format. Use: /givecoins <user_id> <amount>")
-            return
-
-        user_id = args[0]
-        try:
-            amount = int(args[1])
-        except ValueError:
-            await update.message.reply_text("Invalid amount. Please provide a valid number.")
-            return
-
-        # Retrieve user's wallet
-        user = await user_collection.find_one({"id": int(user_id)})
-
-        if not user:
-            # Initialize user's wallet if it doesn't exist
-            await user_collection.insert_one({"id": int(user_id), "coins": amount})
-            await update.message.reply_text(f"User {user_id} didn't have a wallet. Initialized with {amount} coins.")
-            return
-
-        current_balance = user.get("coins", 0)
-        new_balance = current_balance + amount
-
-        # Update user's balance
-        await user_collection.update_one({"id": int(user_id)}, {"$set": {"coins": new_balance}})
-
-        await update.message.reply_text(f"Successfully gave {amount} coins to user {user_id}. New balance: {new_balance}")
-
-    except Exception as e:
-        LOGGER.error(f"Error occurred: {e}")
-        await update.message.reply_text("An error occurred while giving coins. Please try again later.")
-
-
 
 async def pay_coins(update: Update, context: CallbackContext) -> None:
     try:
@@ -453,13 +373,6 @@ application.add_handler(CallbackQueryHandler(buy_character, pattern=r'^buy_\d+$'
 application.add_handler(CommandHandler(['Shop', 'shopmenu'], show_shop))
 application.add_handler(CommandHandler('pay', pay_coins))
 
-# Define command handlers
-REMOVE_COINS_HANDLER = CommandHandler('removecoins', remove_coins)
-GIVE_COINS_HANDLER = CommandHandler('givecoins', give_coins)
-
-# Add handlers to the application
-application.add_handler(REMOVE_COINS_HANDLER)
-application.add_handler(GIVE_COINS_HANDLER)
 
 # Define command handlers
 CHECK_BALANCE_HANDLER = CommandHandler('balance', check_balance)
