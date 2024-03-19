@@ -64,14 +64,19 @@ async def ctop(update: Update, context: CallbackContext) -> None:
 
 
 async def leaderboard(update: Update, context: CallbackContext) -> None:
-    
-    cursor = user_collection.aggregate([
-        {"$project": {"username": 1, "first_name": 1, "character_count": {"$size": "$characters"}}},
-        {"$sort": {"character_count": -1}},
-        {"$limit": 10}
-    ])
-    leaderboard_data = await cursor.to_list(length=10)
+    # Fetch all users with their character counts
+    cursor = user_collection.find({}, {"_id": 0, "username": 1, "first_name": 1, "characters": 1})
 
+    # Convert cursor to list
+    leaderboard_data = await cursor.to_list(length=None)
+
+    # Sort the list based on character count
+    leaderboard_data.sort(key=lambda x: len(x.get('characters', [])), reverse=True)
+
+    # Limit to top 10 users
+    leaderboard_data = leaderboard_data[:10]
+
+    # Prepare the leaderboard message
     leaderboard_message = "<b>TOP 10 USERS WITH MOST CHARACTERS</b>\n\n"
 
     for i, user in enumerate(leaderboard_data, start=1):
@@ -80,12 +85,12 @@ async def leaderboard(update: Update, context: CallbackContext) -> None:
 
         if len(first_name) > 10:
             first_name = first_name[:15] + '...'
-        character_count = user['character_count']
+        character_count = len(user.get('characters', []))  # Calculate character count
         leaderboard_message += f'{i}. <a href="https://t.me/{username}"><b>{first_name}</b></a> ➾ <b>{character_count}</b>\n'
     
-    video_url = random.choice(VIDEO_URL)
+    photo_url = random.choice(PHOTO_URL)
 
-    await update.message.reply_video(video=video_url, caption=leaderboard_message, parse_mode='HTML')
+    await update.message.reply_photo(photo=photo_url, caption=leaderboard_message, parse_mode='HTML')
 
 
 
