@@ -34,7 +34,7 @@ async def global_leaderboard(update: Update, context: CallbackContext) -> None:
     
     video_url = random.choice(VIDEO_URL)
 
-    await update.message.reply_photo(video=video_url, caption=leaderboard_message, parse_mode='HTML')
+    await update.message.reply_video(video=video_url, caption=leaderboard_message, parse_mode='HTML')
 
 async def ctop(update: Update, context: CallbackContext) -> None:
     chat_id = update.effective_chat.id
@@ -60,7 +60,7 @@ async def ctop(update: Update, context: CallbackContext) -> None:
     
     video_url = random.choice(VIDEO_URL)
 
-    await update.message.reply_photo(video=video_url, caption=leaderboard_message, parse_mode='HTML')
+    await update.message.reply_video(video=video_url, caption=leaderboard_message, parse_mode='HTML')
 
 
 async def leaderboard(update: Update, context: CallbackContext) -> None:
@@ -85,7 +85,7 @@ async def leaderboard(update: Update, context: CallbackContext) -> None:
     
     video_url = random.choice(VIDEO_URL)
 
-    await update.message.reply_photo(video=video_url, caption=leaderboard_message, parse_mode='HTML')
+    await update.message.reply_video(video=video_url, caption=leaderboard_message, parse_mode='HTML')
 
 
 
