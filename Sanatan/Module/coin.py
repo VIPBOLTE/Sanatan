@@ -47,7 +47,7 @@ async def check_balance(update: Update, context: CallbackContext) -> None:
 
         if user:
             coins = user.get("coins", 0)
-            await update.message.reply_text(f"Your current balance: {coins} coins.")
+            await update.message.reply_text(f"𝐘𝐨𝐮𝐫 𝐜𝐮𝐫𝐫𝐞𝐧𝐭 𝐛𝐚𝐥𝐚𝐧𝐜𝐞 𝐢𝐬 :💸 {coins} 𝐜𝐨𝐢𝐧𝐬")
         else:
             await update.message.reply_text("You don't have any coins yet.")
     except Exception as e:
