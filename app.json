@@ -31,7 +31,7 @@
         },
         
         "START_VID": {
-            "description": "Start Image For Bot.",
+            "description": "Start Video For Bot.",
             "required": false
         },
         
