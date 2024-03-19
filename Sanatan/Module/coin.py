@@ -130,7 +130,7 @@ async def top_users_by_coins(update: Update, context: CallbackContext) -> None:
         ])
         top_users_data = await cursor.to_list(length=10)
 
-        leaderboard_message = "<b>TOP 10 USERS WITH MOST COINS</b>\n\n"
+        leaderboard_message = "<b>TOP 10 USERS WITH MOST COINS:</b>\n\n"
 
         for i, user_data in enumerate(top_users_data, start=1):
             user_id = user_data.get('id', 'Unknown')
@@ -140,13 +140,16 @@ async def top_users_by_coins(update: Update, context: CallbackContext) -> None:
                 user = await context.bot.get_chat(user_id)
                 username = user.username if user.username else user.first_name
                 display_name = user.title if user.title else user.first_name
-                leaderboard_message += f"{i}. <a href=\"https://t.me/{username}\">{display_name}</a> - <b>{coins}</b>\n"
+                leaderboard_message += f"{i}. <a href=\"https://t.me/{username}\">{display_name}</a>,\nBALANCE: 💸{coins} Rs.\n\n"
 
             except Exception as e:
                 LOGGER.error(f"Error getting user info: {e}")
                 continue  # Skip this user and proceed to the next one
 
+        # Choose a random photo URL
         photo_url = random.choice(PHOTO_URL)
+
+        # Send photo along with the leaderboard message
         await update.message.reply_photo(photo=photo_url, caption=leaderboard_message, parse_mode='HTML')
 
     except Exception as e:
