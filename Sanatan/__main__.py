@@ -60,7 +60,7 @@ async def message_counter(update: Update, context: CallbackContext) -> None:
                     return
                 else:
                     
-                    await update.message.reply_text(f"⚠️ Don't Spam {update.effective_user.first_name}...\nYour Messages Will be ignored for 10 Minutes...")
+                    await update.message.reply_text(f"Bʜᴛ Sʜɪ {update.effective_user.first_name} Bʜᴀɪ ...\ɴAᴇsᴇ Hɪ Lᴀɢᴇ Rᴀʜᴏ")
                     warned_users[user_id] = time.time()
                     return
         else:
@@ -77,9 +77,12 @@ async def message_counter(update: Update, context: CallbackContext) -> None:
             await send_image(update, context)
             
             message_counts[chat_id] = 0
-            
+
+import datetime
+
 async def send_image(update: Update, context: CallbackContext) -> None:
     chat_id = update.effective_chat.id
+    current_time = datetime.datetime.now().strftime("%Y-%m-%d")  # Get current date
 
     all_characters = list(await collection.find({}).to_list(length=None))
     
@@ -89,19 +92,55 @@ async def send_image(update: Update, context: CallbackContext) -> None:
     if len(sent_characters[chat_id]) == len(all_characters):
         sent_characters[chat_id] = []
 
-    rarities = ['Common', 'Rare', 'Legendary', 'Medium', 'Special edition', 'Limited Edition']
-    spawn_rates = [6, 5, 4, 4, 3, 2]  # Adjust spawn rates based on rarity
+    rarities = {
+        1: '⚪️ Common',
+        2: '🟣 Rare',
+        3: '🟡 Legendary',
+        4: '🟢 Medium',
+        5: '💮 Special edition',
+        6: '🔮 Limited Edition',
+        7: '💸 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐄𝐝𝐢𝐭𝐢𝐨𝐧'
+    }
     
-    # Create a list of characters based on spawn rates, excluding Premium Edition
+    spawn_counts = {
+        '⚪️ Common': 4,
+        '🟣 Rare': 3,
+        '🟡 Legendary': 4,
+        '🟢 Medium': 3,
+        '💮 Special edition': 3,
+        '🔮 Limited Edition': 2,
+        '💸 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐄𝐝𝐢𝐭𝐢𝐨𝐧': 0  # Premium Edition won't spawn
+    }
+
+    # Adjust spawn counts for Limited Edition and Special Edition
+    if chat_id in message_counters:
+        today_message_count = message_counters[chat_id].get(current_time, 0)
+    else:
+        today_message_count = 0
+
+    # Check if Special Edition characters can spawn based on daily message count
+    if today_message_count <= 4:  # Special Edition can spawn up to 4 times in a day
+        spawn_counts['💮 Special edition'] = 1
+    else:
+        spawn_counts['💮 Special edition'] = 0
+
+    # Check if Limited Edition characters can spawn based on daily message count
+    if today_message_count <= 2:  # Limited Edition can spawn up to 2 times in a day
+        spawn_counts['🔮 Limited Edition'] = 1
+    else:
+        spawn_counts['🔮 Limited Edition'] = 0
+
+    # Create a list of characters based on spawn counts
     characters_to_spawn = []
-    for rarity, rate in zip(rarities, spawn_rates):
-        if rarity != 'Premium Edition':
-            characters_to_spawn.extend([c for c in all_characters if c.get('id') not in sent_characters[chat_id] and c.get('rarity') == rarity] * rate)
+    for rarity, count in spawn_counts.items():
+        characters_to_spawn.extend([c for c in all_characters if c.get('id') not in sent_characters[chat_id] and c.get('rarity') == rarity] * count)
 
     if not characters_to_spawn:
         characters_to_spawn = all_characters
 
     character = random.choice(characters_to_spawn)
+
+    rarity_name = rarities.get(character['rarity'], f'{character["rarity"]}')  # Get rarity name or fallback to the rarity ID
 
     sent_characters[chat_id].append(character.get('id'))
     last_characters[chat_id] = character
@@ -112,8 +151,10 @@ async def send_image(update: Update, context: CallbackContext) -> None:
     await context.bot.send_photo(
         chat_id=chat_id,
         photo=character['img_url'],
-        caption=f"""A New {character['rarity']} Character Appeared...\n/guess Character Name and add in Your Harem""",
+        caption=f"""🌟 Pʀᴇᴘᴀʀᴇ Fᴏʀ A Tʜʀɪʟʟ! A ʙʀᴀɴᴅ-Nᴇᴡ {rarity_name} Cʜᴀʀᴀᴄᴛᴇʀ Hᴀs Eᴍᴇʀɢᴇᴅ! Qᴜɪᴄᴋ, Hᴇᴀᴅ Tᴏ /guess Tᴏ Rᴇᴠᴇᴀʟ Tʜᴇ Cʜᴀʀᴀᴄᴛᴇʀ's Nᴀᴍᴇ Aɴᴅ Aᴅᴅ Iɴ Yᴏᴜʀ Hᴀʀᴇᴍ! 🌟""",
         parse_mode='Markdown')
+
+
 
 async def guess(update: Update, context: CallbackContext) -> None:
     chat_id = update.effective_chat.id
@@ -123,7 +164,7 @@ async def guess(update: Update, context: CallbackContext) -> None:
         return
 
     if chat_id in first_correct_guesses:
-        await update.message.reply_text(f'❌️ Already Guessed By Someone.. Try Next Time Bruhh ')
+        await update.message.reply_text(f'❌️ Already Guessed By Someone... Try Next Time Cʜᴀᴍᴘ! 🌟')
         return
 
     guess = ' '.join(context.args).lower() if context.args else ''
@@ -132,14 +173,14 @@ async def guess(update: Update, context: CallbackContext) -> None:
         await update.message.reply_text("Nahh You Can't use This Types of words in your guess..❌️")
         return
 
-
     name_parts = last_characters[chat_id]['name'].lower().split()
 
     if sorted(name_parts) == sorted(guess.split()) or any(part == guess for part in name_parts):
-
-    
         first_correct_guesses[chat_id] = user_id
-        
+
+        # Add 60 coins to the user's wallet
+        await add_coins(int(user_id), 40)
+
         user = await user_collection.find_one({'id': user_id})
         if user:
             update_fields = {}
@@ -205,11 +246,13 @@ async def guess(update: Update, context: CallbackContext) -> None:
         
         keyboard = [[InlineKeyboardButton(f"See Harem", switch_inline_query_current_chat=f"collection.{user_id}")]]
 
+        await update.message.reply_text("Cᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴs! Yᴏᴜ'ᴠᴇ Jᴜsᴛ Eᴀʀɴᴇᴅ Yᴏᴜʀsᴇʟғ 𝟼𝟶 Dᴀᴢᴢʟɪɴɢ Cᴏɪɴs Fᴏʀ Gᴜᴇssɪɴɢ Tʜᴇ Cʜᴀʀᴀᴄᴛᴇʀ Sᴘᴏᴛ-ᴏɴ!")
+        await update.message.reply_text(f'<b><a href="tg://user?id={user_id}">{escape(update.effective_user.first_name)}</a></b> 🎉 Bʀᴀᴠᴏ! Yᴏᴜ\'ᴠᴇ Gᴜᴇssᴇᴅ A Nᴇᴡ Cʜᴀʀᴀᴄᴛᴇʀ \u2705️ \n\n🍁NAME🍁: <b>{last_characters[chat_id]["name"]}</b> \n⛩ANIME⛩: <b>{last_characters[chat_id]["anime"]}</b> \n🎐RARITY🎐: <b>{last_characters[chat_id]["rarity"]}</b>\n\nThis Character added in Your harem.. use /harem To see your harem', parse_mode='HTML', reply_markup=InlineKeyboardMarkup(keyboard))
 
-        await update.message.reply_text(f'<b><a href="tg://user?id={user_id}">{escape(update.effective_user.first_name)}</a></b> You Guessed a New Character ✅️ \n\n𝗡𝗔𝗠𝗘: <b>{last_characters[chat_id]["name"]}</b> \n𝗔𝗡𝗜𝗠𝗘: <b>{last_characters[chat_id]["anime"]}</b> \n𝗥𝗔𝗜𝗥𝗧𝗬: <b>{last_characters[chat_id]["rarity"]}</b>\n\nThis Character added in Your harem.. use /harem To see your harem', parse_mode='HTML', reply_markup=InlineKeyboardMarkup(keyboard))
 
     else:
-        await update.message.reply_text('Please Write Correct Character Name... ❌️')
+        await update.message.reply_text('Oᴏᴘs! Cʜᴀᴍᴘ Yᴏᴜ Gᴜᴇssᴇᴅ Tʜᴇ Wʀᴏɴɢ Cʜᴀʀᴀᴄᴛᴇʀ Nᴀᴍᴇ... ❌️')
+
    
 
 async def fav(update: Update, context: CallbackContext) -> None:
@@ -217,7 +260,7 @@ async def fav(update: Update, context: CallbackContext) -> None:
 
     
     if not context.args:
-        await update.message.reply_text('Please provide Character id...')
+        await update.message.reply_text('Aᴛᴛᴇɴᴛɪᴏɴ! Wᴇ Nᴇᴇᴅ Tʜᴇ Cʜᴀʀᴀᴄᴛᴇʀ ID Tᴏ Pʀᴏᴄᴇᴇᴅ. Cᴏᴜʟᴅ Yᴏᴜ Pʟᴇᴀsᴇ Pʀᴏᴠɪᴅᴇ Iᴛ? 🕵️‍♂️')
         return
 
     character_id = context.args[0]
@@ -225,7 +268,7 @@ async def fav(update: Update, context: CallbackContext) -> None:
     
     user = await user_collection.find_one({'id': user_id})
     if not user:
-        await update.message.reply_text('You have not Guessed any characters yet....')
+        await update.message.reply_text("Lᴏᴏᴋs Lɪᴋᴇ Yᴏᴜ Hᴀᴠᴇɴ'ᴛ Gᴜᴇssᴇᴅ Aɴʏ Cʜᴀʀᴀᴄᴛᴇʀs Yᴇᴛ! Lᴇᴛ's Dɪᴠᴇ Iɴ Aɴᴅ Sᴛᴀʀᴛ Gᴜᴇssɪɴɢ Sᴏᴍᴇ Fᴀɴᴛᴀsᴛɪᴄ Cʜᴀʀᴀᴄᴛᴇʀs Tᴏɢᴇᴛʜᴇʀ!🎉 ")
         return
 
 
@@ -243,6 +286,9 @@ async def fav(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text(f'Character {character["name"]} has been added to your favorite...')
     
 
+def error_handler(update: Update, context: CallbackContext):
+    """Log the error and handle it gracefully."""
+    LOGGER.error("An error occurred: %s", context.error)
 
 
 def main() -> None:
@@ -253,6 +299,8 @@ def main() -> None:
     application.add_handler(MessageHandler(filters.ALL, message_counter, block=False))
 
     application.run_polling(drop_pending_updates=True)
+    application.add_error_handler(error_handler)
+
     
 if __name__ == "__main__":
     Sanatan.start()
