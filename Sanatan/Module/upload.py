@@ -14,10 +14,10 @@ img_url character-name anime-name rarity-number
 use rarity number accordingly rarity Map
 
 "ʀᴀʀɪᴛʏ_ᴍᴀᴘ"
-1: 🟢 Cᴏᴍᴍᴏɴ
-2: 🟣 Rᴀʀᴇ
-3: 🟡 Lᴇɢᴇɴᴅᴀʀʏ
-4."🔮 Lɪᴍɪᴛᴇᴅ"
+1: "🟢 Cᴏᴍᴍᴏɴ"
+2: "🟣 Rᴀʀᴇ"
+3: "🟡 Lᴇɢᴇɴᴅᴀʀʏ"
+4: "🔮 Lɪᴍɪᴛᴇᴅ"
 5."🫧 Pʀᴇᴍɪᴜᴍ"
 """
 
@@ -56,8 +56,8 @@ async def upload(update: Update, context: CallbackContext) -> None:
             return
 
         rarity_map = {
-1: "🟢 Cᴏᴍᴍᴏɴ"
-2: "🟣 Rᴀʀᴇ" 
+1: 🟢 Cᴏᴍᴍᴏɴ
+2: 🟣 Rᴀʀᴇ
 3: "🟡Lᴇɢᴇɴᴅᴀʀʏ" 
 4: "🔮 Lɪᴍɪᴛᴇᴅ"
 5: "🫧 Pʀᴇᴍɪᴜᴍ"}
