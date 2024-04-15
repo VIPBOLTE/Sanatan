@@ -144,10 +144,10 @@ async def update(update: Update, context: CallbackContext) -> None:
             new_value = args[2].replace('-', ' ').title()
         elif args[1] == 'rarity':
             rarity_map = {
-                1: "🟢 Cᴏᴍᴍᴏɴ" 
-                2: "🟣 Rᴀʀᴇ"
-                3: "🟡Lᴇɢᴇɴᴅᴀʀʏ"
-                4: "🔮 Lɪᴍɪᴛᴇᴅ" 
+                1: "🟢 Cᴏᴍᴍᴏɴ", 
+                2: "🟣 Rᴀʀᴇ", 
+                3: "🟡Lᴇɢᴇɴᴅᴀʀʏ", 
+                4: "🔮 Lɪᴍɪᴛᴇᴅ", 
                 5: "🫧 Pʀᴇᴍɪᴜᴍ"}
             try:
                 new_value = rarity_map[int(args[2])]
