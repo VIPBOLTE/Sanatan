@@ -36,7 +36,7 @@ async def start(update: Update, context: CallbackContext) -> None:
         caption = f"""
         ***Heyyyy...***
 
-***I am An Open Source Character Catcher Bot...​Add Me in Your group.. And I will send Random Characters After.. every 100 messages in Group... Use /guess to.. Collect that Characters in Your Collection.. and see Collection by using /Harem... So add in Your groups and Collect Your harem***
+***┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫/n/n✾ Wᴇʟᴄᴏᴍɪɴɢ ʏᴏᴜ ᴛᴏ ᴛʜᴇ Oᴛᴀᴋᴜ Cᴜʟᴛᴜʀᴇ  /n/n┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫/n/n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫/n/n🍂 I ᴡɪʟʟ Sᴜᴍᴍᴏɴ Rᴀɴᴅᴏᴍ Cʜᴀʀᴀᴄᴛᴇʀs/n/nIɴ ʏᴏᴜʀ Gʀᴏᴜᴘ Cʜᴀᴛ./n/n💮 Yᴏᴜ ᴄᴀɴ ᴄᴏʟʟᴇᴄᴛ ᴛʜᴇᴍ ᴀɴᴅ ᴅᴏ ᴛʀᴀᴅᴇ./n/n┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫/n/nTᴀᴘ ᴏɴ "Hᴇʟᴘ" ғᴏʀ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs.***
         """
         
         keyboard = [
@@ -92,7 +92,7 @@ async def button(update: Update, context: CallbackContext) -> None:
         caption = f"""
         ***Hoyyyy...*** ✨
 
-***I am An Open Source Character Catcher Bot..​Add Me in Your group.. And I will send Random Characters After.. every 100 messages in Group... Use /guess to.. Collect that Characters in Your Collection.. and see Collection by using /Harem... So add in Your groups and Collect Your harem***
+***┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫/n/n✾ Wᴇʟᴄᴏᴍɪɴɢ ʏᴏᴜ ᴛᴏ ᴛʜᴇ Oᴛᴀᴋᴜ Cᴜʟᴛᴜʀᴇ  /n/n┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫/n/n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫/n/n🍂 I ᴡɪʟʟ Sᴜᴍᴍᴏɴ Rᴀɴᴅᴏᴍ Cʜᴀʀᴀᴄᴛᴇʀs/n/nIɴ ʏᴏᴜʀ Gʀᴏᴜᴘ Cʜᴀᴛ./n/n💮 Yᴏᴜ ᴄᴀɴ ᴄᴏʟʟᴇᴄᴛ ᴛʜᴇᴍ ᴀɴᴅ ᴅᴏ ᴛʀᴀᴅᴇ./n/n┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫/n/nTᴀᴘ ᴏɴ "Hᴇʟᴘ" ғᴏʀ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs.***
         """
 
         
