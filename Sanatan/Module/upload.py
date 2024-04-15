@@ -57,7 +57,7 @@ async def upload(update: Update, context: CallbackContext) -> None:
 
         rarity_map = {
 1: "🟢 Cᴏᴍᴍᴏɴ", 
-2: "🟣 Rᴀʀᴇ, 
+2: "🟣 Rᴀʀᴇ", 
 3: "🟡 Lᴇɢᴇɴᴅᴀʀʏ", 
 4: "🔮 Lɪᴍɪᴛᴇᴅ", 
 5: "🫧 Pʀᴇᴍɪᴜᴍ"}
