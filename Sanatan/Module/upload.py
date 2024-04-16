@@ -7,13 +7,13 @@ from telegram.ext import CommandHandler, CallbackContext
 from Sanatan import application, sudo_users, collection, db, UPDATE_CHAT, SUPPORT_CHAT
 
 
-WRONG_FORMAT_TEXT = """Wrong ❌ format...  eg. /upload Img_url muzan-kibutsuji Demon-slayer 3
+WRONG_FORMAT_TEXT = """Wʀᴏɴɢ ❌ ғᴏʀᴍᴀᴛ...  ᴇɢ. /upload Iᴍɢ_ᴜʀʟ ᴍᴜᴢᴀɴ-ᴋɪʙᴜᴛsᴜɪɪ Dᴇᴍᴏɴ-sʟᴀʏᴇʀ 3
 
-img_url character-name anime-name rarity-number
+ɪᴍɢ_ᴜʀʟ ᴄʜᴀʀᴀᴄᴛᴇʀ-ɴᴀᴍᴇ ᴀɴɪᴍᴇ-ɴᴀᴍᴇ ʀᴀʀɪᴛʏ-ɴᴜᴍʙᴇʀ
 
-use rarity number accordingly rarity Map
+ᴜsᴇ ʀᴀʀɪᴛʏ ɴᴜᴍʙᴇʀ ᴀᴄᴄᴏʀᴅɪɴɢʟʏ ʀᴀʀɪᴛʏ Mᴀᴘ
 
-ʀᴀʀɪᴛʏ_ᴍᴀᴘ
+🏆ʀᴀʀɪᴛʏ_ᴍᴀᴘ
 1: 🟢 Cᴏᴍᴍᴏɴ
 2: 🟣 Rᴀʀᴇ
 3: 🟡 Lᴇɢᴇɴᴅᴀʀʏ
