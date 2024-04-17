@@ -95,7 +95,7 @@ async def send_image(update: Update, context: CallbackContext) -> None:
 
     rarities = {
         1: '🟢 Cᴏᴍᴍᴏɴ',
-        2: '🟣 Rare',
+        2: '🟣 Rᴀʀᴇ',
         3: '🟡 Legendary',
         4: '🟢 Medium',
         5: '💮 Special edition',
@@ -105,7 +105,7 @@ async def send_image(update: Update, context: CallbackContext) -> None:
     
     spawn_counts = {
         '🟢 Cᴏᴍᴍᴏɴ': 4,
-        '🟣 Rare': 3,
+        '🟣 Rᴀʀᴇ': 3,
         '🟡 Legendary': 4,
         '🟢 Medium': 3,
         '💮 Special edition': 3,
