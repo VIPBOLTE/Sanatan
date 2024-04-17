@@ -31,7 +31,7 @@ sudo_users = Config.sudo_users
 OWNER_ID = Config.OWNER_ID 
 
 application = Application.builder().bot_token(BOT_TOKEN).build()
-Sanatan = Client("Sanatan", API_ID, API_HASH, bot_token=BOT TOKEN)
+Sanatan = Client("Sanatan", API_ID, API_HASH, bot_token=BOT_TOKEN)
 lol = AsyncIOMotorClient(MONGO_URL)
 db = lol['Character_catcher']
 collection = db['anime_characters_lol']
