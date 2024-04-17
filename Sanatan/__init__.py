@@ -20,18 +20,18 @@ from Sanatan.Config import Development as Config
 
 API_ID= Config.API_ID
 API_HASH= Config.API_HASH
-TOKEN = Config.TOKEN
+BOT_TOKEN = Config.BOT_TOKEN
 GROUP_ID = Config.GROUP_ID
 MONGO_URL= Config.MONGO_URL
 VIDEO_URL = Config.VIDEO_URL 
 SUPPORT_CHAT = Config.SUPPORT_CHAT 
-UPDATE_CHAT = Config.UPDATE_CHAT
+SUPPORT_CHANNEL= Config.SUPPORT_CHANNEL
 BOT_USERNAME = Config.BOT_USERNAME 
 sudo_users = Config.sudo_users
 OWNER_ID = Config.OWNER_ID 
 
-application = Application.builder().token(TOKEN).build()
-Sanatan = Client("Sanatan", API_ID, API_HASH, bot_token=TOKEN)
+application = Application.builder().bot_token(BOT_TOKEN).build()
+Sanatan = Client("Sanatan", API_ID, API_HASH, bot_token=BOT TOKEN)
 lol = AsyncIOMotorClient(MONGO_URL)
 db = lol['Character_catcher']
 collection = db['anime_characters_lol']
