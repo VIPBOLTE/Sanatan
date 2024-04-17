@@ -6,7 +6,7 @@ class Config(object):
     sudo_users = "5595153270", "6092692622"
     LOGGER_ID= -1002126989582
     BOT_TOKEN = "7167198617:AAGjuNQUX6FTzblOasSA5lQm4VutvvNkqyE"
-    MONGO_URL = "mongodb+srv://babusona:hinatababy@cluster0.t0lfelh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    MONGO_DB_URI = "mongodb+srv://babusona:hinatababy@cluster0.t0lfelh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     VIDEO_URL = ["https://telegra.ph/file/2f56b2568b3f92abcf55e.mp4"]
     SUPPORT_CHAT = "https://t.me/goku_groupz"
     SUPPORT_CHANNEL= "https://t.me/channelz_k"
