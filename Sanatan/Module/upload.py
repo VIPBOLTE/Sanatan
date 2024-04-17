@@ -181,7 +181,7 @@ async def update(update: Update, context: CallbackContext) -> None:
 
         await update.message.reply_text('Updated Done in Database.... But sometimes it Takes Time to edit Caption in Your Channel..So wait..')
     except Exception as e:
-        await update.message.reply_text(f'I guess did not added bot in channel.. or character uploaded Long time ago.. Or character not exits.. orr Wrong id')
+        await update.message.reply_text(f'I sᴇᴀʟ ɪᴅ ɴᴏᴛ ᴀᴅᴅᴇᴅ ʙᴏᴛ ɪɴ ᴄʜᴀɴɴᴇʟ.. ᴏʀ ᴄʜᴀʀᴀᴄᴛᴇʀ ᴜᴘʟᴏᴀᴅᴇᴅ Lᴏɴɢ ᴛɪᴍᴇ ᴀɢᴏ.. Oʀ ᴄʜᴀʀᴀᴄᴛᴇʀ ɴᴏᴛ ᴇxɪᴛs.. ᴏʀʀ Wʀᴏɴɢ ɪᴅ')
 
         
 async def check(update: Update, context: CallbackContext) -> None:    
