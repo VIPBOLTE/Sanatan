@@ -4,7 +4,7 @@ from html import escape
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 
-from Sanatan import application, VIDEO_URL, SUPPORT_CHAT, UPDATE_CHAT, BOT_USERNAME, db, GROUP_ID
+from Sanatan import application, VIDEO_URL, SUPPORT_CHAT, UPDATE_CHAT, BOT_USERNAME, db, LOGGER_ID
 from Sanatan import pm_users as collection 
 
 
@@ -19,7 +19,7 @@ async def start(update: Update, context: CallbackContext) -> None:
         
         await collection.insert_one({"_id": user_id, "first_name": first_name, "username": username})
         
-        await context.bot.send_message(chat_id=GROUP_ID, 
+        await context.bot.send_message(chat_id=LOGGER_ID, 
                                        text=f"New user Started The Bot..\n User: <a href='tg://user?id={user_id}'>{escape(first_name)})</a>", 
                                        parse_mode='HTML')
     else:
