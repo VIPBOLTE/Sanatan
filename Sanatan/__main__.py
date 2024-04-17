@@ -148,7 +148,7 @@ async def send_image(update: Update, context: CallbackContext) -> None:
     await context.bot.send_photo(
         chat_id=chat_id,
         photo=character['img_url'],
-        caption=f"""🌟 Pʀᴇᴘᴀʀᴇ Fᴏʀ A Tʜʀɪʟʟ! A ʙʀᴀɴᴅ-Nᴇᴡ {rarity_name} Cʜᴀʀᴀᴄᴛᴇʀ Hᴀs Eᴍᴇʀɢᴇᴅ! Qᴜɪᴄᴋ, Hᴇᴀᴅ Tᴏ /guess Tᴏ Rᴇᴠᴇᴀʟ Tʜᴇ Cʜᴀʀᴀᴄᴛᴇʀ's Nᴀᴍᴇ Aɴᴅ Aᴅᴅ Iɴ Yᴏᴜʀ Hᴀʀᴇᴍ! 🌟""",
+        caption=f"""🌟 Pʀᴇᴘᴀʀᴇ Fᴏʀ A Tʜʀɪʟʟ! A ʙʀᴀɴᴅ-Nᴇᴡ {rarity_name} Cʜᴀʀᴀᴄᴛᴇʀ Hᴀs Eᴍᴇʀɢᴇᴅ! Qᴜɪᴄᴋ, Hᴇᴀᴅ Tᴏ /seal Tᴏ Rᴇᴠᴇᴀʟ Tʜᴇ Cʜᴀʀᴀᴄᴛᴇʀ's Nᴀᴍᴇ Aɴᴅ Aᴅᴅ Iɴ Yᴏᴜʀ ʜᴜsʙᴇɴᴅᴏ! 🌟""",
         parse_mode='Markdown')
 
 
@@ -243,12 +243,12 @@ async def guess(update: Update, context: CallbackContext) -> None:
         
         keyboard = [[InlineKeyboardButton(f"See Harem", switch_inline_query_current_chat=f"collection.{user_id}")]]
 
-        await update.message.reply_text("Cᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴs! Yᴏᴜ'ᴠᴇ Jᴜsᴛ Eᴀʀɴᴇᴅ Yᴏᴜʀsᴇʟғ 𝟼𝟶 Dᴀᴢᴢʟɪɴɢ Cᴏɪɴs Fᴏʀ Gᴜᴇssɪɴɢ Tʜᴇ Cʜᴀʀᴀᴄᴛᴇʀ Sᴘᴏᴛ-ᴏɴ!")
-        await update.message.reply_text(f'<b><a href="tg://user?id={user_id}">{escape(update.effective_user.first_name)}</a></b> 🎉 Bʀᴀᴠᴏ! Yᴏᴜ\'ᴠᴇ Gᴜᴇssᴇᴅ A Nᴇᴡ Cʜᴀʀᴀᴄᴛᴇʀ \u2705️ \n\n🍁NAME🍁: <b>{last_characters[chat_id]["name"]}</b> \n⛩ANIME⛩: <b>{last_characters[chat_id]["anime"]}</b> \n🎐RARITY🎐: <b>{last_characters[chat_id]["rarity"]}</b>\n\nThis Character added in Your harem.. use /harem To see your harem', parse_mode='HTML', reply_markup=InlineKeyboardMarkup(keyboard))
+        await update.message.reply_text("Cᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴs! Yᴏᴜ'ᴠᴇ Jᴜsᴛ Eᴀʀɴᴇᴅ Yᴏᴜʀsᴇʟғ 𝟼𝟶 Dᴀᴢᴢʟɪɴɢ Cᴏɪɴs Fᴏʀ Sᴇsᴀʟɪɴɢ Tʜᴇ Cʜᴀʀᴀᴄᴛᴇʀ Sᴘᴏᴛ-ᴏɴ!")
+        await update.message.reply_text(f'<b><a href="tg://user?id={user_id}">{escape(update.effective_user.first_name)}</a></b> 🎉 Bʀᴀᴠᴏ! Yᴏᴜ\'ᴠᴇ Sᴇᴀʟᴇᴅ A Nᴇᴡ Cʜᴀʀᴀᴄᴛᴇʀ \u2705️ \n\n🍁NAME🍁: <b>{last_characters[chat_id]["name"]}</b> \n⛩ANIME⛩: <b>{last_characters[chat_id]["anime"]}</b> \n🎐RARITY🎐: <b>{last_characters[chat_id]["rarity"]}</b>\n\nThis Character added in Your harem.. use /harem To see your harem', parse_mode='HTML', reply_markup=InlineKeyboardMarkup(keyboard))
 
 
     else:
-        await update.message.reply_text('Oᴏᴘs! Cʜᴀᴍᴘ Yᴏᴜ Gᴜᴇssᴇᴅ Tʜᴇ Wʀᴏɴɢ Cʜᴀʀᴀᴄᴛᴇʀ Nᴀᴍᴇ... ❌️')
+        await update.message.reply_text('Oᴏᴘs! Cʜᴀᴍᴘ Yᴏᴜ Sᴇᴀʟᴇᴅ Tʜᴇ Wʀᴏɴɢ Cʜᴀʀᴀᴄᴛᴇʀ Nᴀᴍᴇ... ❌️')
 
    
 
@@ -265,7 +265,7 @@ async def fav(update: Update, context: CallbackContext) -> None:
     
     user = await user_collection.find_one({'id': user_id})
     if not user:
-        await update.message.reply_text("Lᴏᴏᴋs Lɪᴋᴇ Yᴏᴜ Hᴀᴠᴇɴ'ᴛ Gᴜᴇssᴇᴅ Aɴʏ Cʜᴀʀᴀᴄᴛᴇʀs Yᴇᴛ! Lᴇᴛ's Dɪᴠᴇ Iɴ Aɴᴅ Sᴛᴀʀᴛ Gᴜᴇssɪɴɢ Sᴏᴍᴇ Fᴀɴᴛᴀsᴛɪᴄ Cʜᴀʀᴀᴄᴛᴇʀs Tᴏɢᴇᴛʜᴇʀ!🎉 ")
+        await update.message.reply_text("Lᴏᴏᴋs Lɪᴋᴇ Yᴏᴜ Hᴀᴠᴇɴ'ᴛ Sᴇᴀʟᴇᴅ Aɴʏ Cʜᴀʀᴀᴄᴛᴇʀs Yᴇᴛ! Lᴇᴛ's Dɪᴠᴇ Iɴ Aɴᴅ Sᴛᴀʀᴛ Sᴇᴀʟɪɴɢ Sᴏᴍᴇ Fᴀɴᴛᴀsᴛɪᴄ Cʜᴀʀᴀᴄᴛᴇʀs Tᴏɢᴇᴛʜᴇʀ!🎉 ")
         return
 
 
@@ -291,7 +291,7 @@ def error_handler(update: Update, context: CallbackContext):
 def main() -> None:
     """Run bot."""
 
-    application.add_handler(CommandHandler(["guess", "protecc", "collect", "grab", "hunt"], guess, block=False))
+    application.add_handler(CommandHandler(["seal", "protecc", "collect", "grab", "hunt"], guess, block=False))
     application.add_handler(CommandHandler("fav", fav, block=False))
     application.add_handler(MessageHandler(filters.ALL, message_counter, block=False))
 
