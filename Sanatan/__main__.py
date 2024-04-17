@@ -11,7 +11,7 @@ from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext, MessageHandler, filters
 
 from Sanatan import collection, top_global_groups_collection, group_user_totals_collection, user_collection, user_totals_collection, Sanatan
-from Sanatan import application, SUPPORT_CHAT, UPDATE_CHAT, db, LOGGER
+from Sanatan import application, SUPPORT_CHAT, SUPPORT_CHANNEL, db, LOGGER
 from Sanatan.Module import ALL_MODULES
 
 
