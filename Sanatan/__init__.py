@@ -18,17 +18,17 @@ LOGGER = logging.getLogger(__name__)
 from config import *
 
 
-API_ID= config.API_ID
-API_HASH= config.API_HASH
-BOT_TOKEN = config.BOT_TOKEN
-LOGGER_ID = config.LOGGER_ID
-MONGO_DB_URI= config.MONGO_DB_URI
-VIDEO_URL = config.VIDEO_URL 
-SUPPORT_CHAT = config.SUPPORT_CHAT 
-SUPPORT_CHANNEL= config.SUPPORT_CHANNEL
-BOT_USERNAME = config.BOT_USERNAME 
-sudo_users = config.sudo_users
-OWNER_ID = config.OWNER_ID 
+API_ID = API_ID
+API_HASH = API_HASH
+BOT_TOKEN = BOT_TOKEN
+LOGGER_ID = LOGGER_ID
+MONGO_DB_URI = MONGO_DB_URI
+VIDEO_URL = VIDEO_URL 
+SUPPORT_CHAT = SUPPORT_CHAT 
+SUPPORT_CHANNEL= SUPPORT_CHANNEL
+BOT_USERNAME = BOT_USERNAME 
+sudo_users = sudo_users
+OWNER_ID = OWNER_ID 
 
 application = Application.builder().token(BOT_TOKEN).build()
 Sanatan = Client("Sanatan", API_ID, API_HASH, bot_token=BOT_TOKEN)
