@@ -27,7 +27,6 @@ VIDEO_URL = VIDEO_URL
 SUPPORT_CHAT = SUPPORT_CHAT 
 SUPPORT_CHANNEL= SUPPORT_CHANNEL
 BOT_USERNAME = BOT_USERNAME 
-sudo_users = sudo_users
 OWNER_ID = OWNER_ID 
 
 from Config import development as Config
