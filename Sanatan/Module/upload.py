@@ -4,7 +4,7 @@ from pymongo import ReturnDocument
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
 
-from Sanatan import application, sudo_users, collection, db, UPDATE_CHAT, SUPPORT_CHAT
+from Sanatan import application, sudo_users, collection, db, CHANNEL_ID, SUPPORT_CHAT
 
 
 WRONG_FORMAT_TEXT = """Wʀᴏɴɢ ❌ ғᴏʀᴍᴀᴛ...  ᴇɢ. /upload Iᴍɢ_ᴜʀʟ ᴍᴜᴢᴀɴ-ᴋɪʙᴜᴛsᴜɪɪ Dᴇᴍᴏɴ-sʟᴀʏᴇʀ 3
@@ -79,7 +79,7 @@ async def upload(update: Update, context: CallbackContext) -> None:
 
         try:
             message = await context.bot.send_photo(
-                chat_id=CHARA_CHANNEL_ID,
+                chat_id=CHANNEL_ID,
                 photo=args[0],
                 caption=f'<b>Character Name:</b> {character_name}\n<b>Anime Name:</b> {anime}\n<b>Rarity:</b> {rarity}\n<b>ID:</b> {id}\nAdded by <a href="tg://user?id={update.effective_user.id}">{update.effective_user.first_name}</a>',
                 parse_mode='HTML'
@@ -109,7 +109,7 @@ async def delete(update: Update, context: CallbackContext) -> None:
         character = await collection.find_one_and_delete({'id': args[0]})
         if character:
             
-            await context.bot.delete_message(chat_id=CHARA_CHANNEL_ID, message_id=character['message_id'])
+            await context.bot.delete_message(chat_id=CHANNEL_ID, message_id=character['message_id'])
             await update.message.reply_text('DONE')
         else:
             await update.message.reply_text('Deleted Successfully from db, but character not found In Channel')
@@ -163,7 +163,7 @@ async def update(update: Update, context: CallbackContext) -> None:
         if args[1] == 'img_url':
             await context.bot.delete_message(chat_id=CHARA_CHANNEL_ID, message_id=character['message_id'])
             message = await context.bot.send_photo(
-                chat_id=CHARA_CHANNEL_ID,
+                chat_id=CHANNEL_ID,
                 photo=new_value,
                 caption=f'<b>Character Name:</b> {character["name"]}\n<b>Anime Name:</b> {character["anime"]}\n<b>Rarity:</b> {character["rarity"]}\n<b>ID:</b> {character["id"]}\nUpdated by <a href="tg://user?id={update.effective_user.id}">{update.effective_user.first_name}</a>',
                 parse_mode='HTML'
