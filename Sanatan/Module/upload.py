@@ -173,7 +173,7 @@ async def update(update: Update, context: CallbackContext) -> None:
         else:
             
             await context.bot.edit_message_caption(
-                chat_id=CHARA_CHANNEL_ID,
+                chat_id=CHANNEL_ID,
                 message_id=character['message_id'],
                 caption=f'<b>Character Name:</b> {character["name"]}\n<b>Anime Name:</b> {character["anime"]}\n<b>Rarity:</b> {character["rarity"]}\n<b>ID:</b> {character["id"]}\nUpdated by <a href="tg://user?id={update.effective_user.id}">{update.effective_user.first_name}</a>',
                 parse_mode='HTML'
@@ -208,7 +208,7 @@ async def check(update: Update, context: CallbackContext) -> None:
                                          caption=message,
                                          parse_mode='HTML')
         else:
-            await update.message.reply_text("Character not found.")
+            await update.message.reply_text("Cʜᴀʀᴀᴄᴛᴇʀ ɴᴏᴛ ғᴏᴜɴᴅ.")
      except Exception as e:
         await update.message.reply_text(f"Eʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ: {e}")
 
