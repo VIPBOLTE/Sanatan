@@ -32,7 +32,7 @@ OWNER_ID = Config.OWNER_ID
 
 application = Application.builder().token(BOT_TOKEN).build()
 Sanatan = Client("Sanatan", API_ID, API_HASH, bot_token=BOT_TOKEN)
-lol = AsyncIOMotorClient(MONGO_URL)
+lol = AsyncIOMotorClient(MONGO_DB_URI)
 db = lol['Character_catcher']
 collection = db['anime_characters_lol']
 user_totals_collection = db['user_totals_lmaoooo']
