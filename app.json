@@ -60,8 +60,13 @@
         "SUPPORT_CHANNEL": {
           "description": "", 
           "value": "",
-          " required": true
+          "required": true
         },
+        "VIDEO_URL": {
+          "description": "", 
+          "value": "", 
+          "required": true
+        }, 
       "LOGGER_ID": {
         "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Channel ki id mat daal dena bsdk.",
         "value": "",
