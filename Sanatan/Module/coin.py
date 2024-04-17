@@ -13,7 +13,7 @@ from telegram.ext import CommandHandler, CallbackContext, CallbackQueryHandler
 from datetime import datetime, timedelta
 
 # Assuming these are defined elsewhere in your code
-from Sanatan import db, UPDATE_CHAT, SUPPORT_CHAT, collection, user_collection
+from Sanatan import db, SUPPORT_CHANNEL, SUPPORT_CHAT, collection, user_collection
 from Sanatan import (application, VIDEO_URL, OWNER_ID,
                     user_collection, top_global_groups_collection, top_global_groups_collection, 
                     group_user_totals_collection)
