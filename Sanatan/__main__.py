@@ -60,7 +60,7 @@ async def message_counter(update: Update, context: CallbackContext) -> None:
                     return
                 else:
                     
-                    await update.message.reply_text(f"🥊 ʏᴏᴜ'ʀᴇ ɴᴏᴡ ʙʟᴏᴄᴋᴇᴅ ғᴏʀ 10 ᴍɪɴᴜᴛᴇs {update.effective_user.first_name} ... "
+                    await update.message.reply_text(f"🥊 ʏᴏᴜ'ʀᴇ ɴᴏᴡ ʙʟᴏᴄᴋᴇᴅ ғᴏʀ 10 ᴍɪɴᴜᴛᴇs {update.effective_user.first_name} ......"
                     "🧬 ʀᴇᴀsᴏɴ: ғʟᴏᴏᴅɪɴɢ | sᴘᴀᴍᴍɪɴɢ")
                     warned_users[user_id] = time.time()
                     return
@@ -94,7 +94,7 @@ async def send_image(update: Update, context: CallbackContext) -> None:
         sent_characters[chat_id] = []
 
     rarities = {
-        1: '⚪️ Common',
+        1: '🟢 Cᴏᴍᴍᴏɴ',
         2: '🟣 Rare',
         3: '🟡 Legendary',
         4: '🟢 Medium',
@@ -104,7 +104,7 @@ async def send_image(update: Update, context: CallbackContext) -> None:
     }
     
     spawn_counts = {
-        '⚪️ Common': 4,
+        '🟢 Cᴏᴍᴍᴏɴ': 4,
         '🟣 Rare': 3,
         '🟡 Legendary': 4,
         '🟢 Medium': 3,
