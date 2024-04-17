@@ -210,7 +210,7 @@ async def check(update: Update, context: CallbackContext) -> None:
         else:
             await update.message.reply_text("Character not found.")
      except Exception as e:
-        await update.message.reply_text(f"Error occurred: {e}")
+        await update.message.reply_text(f"Eʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ: {e}")
 
 
 UPLOAD_HANDLER = CommandHandler('upload', upload, block=False)
