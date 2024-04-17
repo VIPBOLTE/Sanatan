@@ -21,7 +21,7 @@ from Sanatan.Config import Development as Config
 API_ID= Config.API_ID
 API_HASH= Config.API_HASH
 BOT_TOKEN = Config.BOT_TOKEN
-GROUP_ID = Config.GROUP_ID
+LOGGER_ID = Config.LOGGER_ID
 MONGO_URL= Config.MONGO_URL
 VIDEO_URL = Config.VIDEO_URL 
 SUPPORT_CHAT = Config.SUPPORT_CHAT 
