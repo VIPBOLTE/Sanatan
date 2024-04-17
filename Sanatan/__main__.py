@@ -97,19 +97,15 @@ async def send_image(update: Update, context: CallbackContext) -> None:
         1: '🟢 Cᴏᴍᴍᴏɴ',
         2: '🟣 Rᴀʀᴇ',
         3: '🟡 Lᴇɢᴇɴᴅᴀʀʏ',
-        4: '🟢 Medium',
-        5: '💮 Special edition',
-        6: '🔮 Limited Edition',
-        7: '💸 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐄𝐝𝐢𝐭𝐢𝐨𝐧'
+        4: '🔮 Lɪᴍɪᴛᴇᴅ',
+        5: '💸 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐄𝐝𝐢𝐭𝐢𝐨𝐧'
     }
     
     spawn_counts = {
         '🟢 Cᴏᴍᴍᴏɴ': 4,
         '🟣 Rᴀʀᴇ': 3,
         '🟡 Lᴇɢᴇɴᴅᴀʀʏ': 4,
-        '🟢 Medium': 3,
-        '💮 Special edition': 3,
-        '🔮 Limited Edition': 2,
+        '🔮 Lɪᴍɪᴛᴇᴅ': 2,
         '💸 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐄𝐝𝐢𝐭𝐢𝐨𝐧': 0  # Premium Edition won't spawn
     }
 
@@ -121,15 +117,15 @@ async def send_image(update: Update, context: CallbackContext) -> None:
 
     # Check if Special Edition characters can spawn based on daily message count
     if today_message_count <= 4:  # Special Edition can spawn up to 4 times in a day
-        spawn_counts['💮 Special edition'] = 1
+        spawn_counts['🟡 Lᴇɢᴇɴᴅᴀʀʏ'] = 1
     else:
-        spawn_counts['💮 Special edition'] = 0
+        spawn_counts['🟡 Lᴇɢᴇɴᴅᴀʀʏ'] = 0
 
     # Check if Limited Edition characters can spawn based on daily message count
     if today_message_count <= 2:  # Limited Edition can spawn up to 2 times in a day
-        spawn_counts['🔮 Limited Edition'] = 1
+        spawn_counts['🔮 Lɪᴍɪᴛᴇᴅ'] = 1
     else:
-        spawn_counts['🔮 Limited Edition'] = 0
+        spawn_counts['🔮 Lɪᴍɪᴛᴇᴅ'] = 0
 
     # Create a list of characters based on spawn counts
     characters_to_spawn = []
