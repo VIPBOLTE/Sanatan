@@ -4,7 +4,7 @@ from pymongo import ReturnDocument
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
 
-from Sanatan import application, sudo_users, collection, db, CHANNEL_ID, SUPPORT_CHAT
+from Sanatan import application, sudo_users, collection, db, LOGGER_ID, SUPPORT_CHAT
 
 
 WRONG_FORMAT_TEXT = """Wʀᴏɴɢ ❌ ғᴏʀᴍᴀᴛ...  ᴇɢ. /upload Iᴍɢ_ᴜʀʟ ᴍᴜᴢᴀɴ-ᴋɪʙᴜᴛsᴜɪɪ Dᴇᴍᴏɴ-sʟᴀʏᴇʀ 3
@@ -79,7 +79,7 @@ async def upload(update: Update, context: CallbackContext) -> None:
 
         try:
             message = await context.bot.send_photo(
-                chat_id=CHANNEL_ID,
+                chat_id=LOGGER_ID,
                 photo=args[0],
                 caption=f'<b>Character Name:</b> {character_name}\n<b>Anime Name:</b> {anime}\n<b>Rarity:</b> {rarity}\n<b>ID:</b> {id}\nAdded by <a href="tg://user?id={update.effective_user.id}">{update.effective_user.first_name}</a>',
                 parse_mode='HTML'
@@ -163,7 +163,7 @@ async def update(update: Update, context: CallbackContext) -> None:
         if args[1] == 'img_url':
             await context.bot.delete_message(chat_id=CHARA_CHANNEL_ID, message_id=character['message_id'])
             message = await context.bot.send_photo(
-                chat_id=CHANNEL_ID,
+                chat_id=LOGGER_ID,
                 photo=new_value,
                 caption=f'<b>Character Name:</b> {character["name"]}\n<b>Anime Name:</b> {character["anime"]}\n<b>Rarity:</b> {character["rarity"]}\n<b>ID:</b> {character["id"]}\nUpdated by <a href="tg://user?id={update.effective_user.id}">{update.effective_user.first_name}</a>',
                 parse_mode='HTML'
@@ -173,7 +173,7 @@ async def update(update: Update, context: CallbackContext) -> None:
         else:
             
             await context.bot.edit_message_caption(
-                chat_id=CHANNEL_ID,
+                chat_id=LOGGER_ID,
                 message_id=character['message_id'],
                 caption=f'<b>Character Name:</b> {character["name"]}\n<b>Anime Name:</b> {character["anime"]}\n<b>Rarity:</b> {character["rarity"]}\n<b>ID:</b> {character["id"]}\nUpdated by <a href="tg://user?id={update.effective_user.id}">{update.effective_user.first_name}</a>',
                 parse_mode='HTML'
