@@ -29,9 +29,9 @@ SUPPORT_CHANNEL= SUPPORT_CHANNEL
 BOT_USERNAME = BOT_USERNAME 
 OWNER_ID = OWNER_ID 
 
-from Sanatan.Config import Development as Config
+from Sanatan.logging import Development as logging
 
-sudo_users = Config.sudo_users
+sudo_users = logging.sudo_users
 application = Application.builder().token(BOT_TOKEN).build()
 Sanatan = Client("Sanatan", API_ID, API_HASH, bot_token=BOT_TOKEN)
 lol = AsyncIOMotorClient(MONGO_DB_URI)
