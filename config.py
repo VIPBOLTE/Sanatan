@@ -22,6 +22,8 @@ BOT_NAME = getenv("NAME", "GOKU_WAIFUS")
 MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://sanasomani786:TJgADfpkI1XVUkKt@cluster0.ruhyad9.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp")
 
 
+VIDEO_URL = getenv(
+    "START_IMG_URL"," https://telegra.ph/file/2f56b2568b3f92abcf55e.mp4") 
 
 # Chat id of a group for logging bot's activities
 LOGGER_ID = int(getenv("LOGGER_ID", "-1002126989582"))
