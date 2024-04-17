@@ -4,9 +4,9 @@ from html import escape
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 
-from Sanatan import application, VIDEO_URL, SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, db, LOGGER_ID
+from Sanatan import application, db
 from Sanatan import pm_users as collection 
-
+from config import VIDEO_URL, SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, LOGGER_ID
 
 async def start(update: Update, context: CallbackContext) -> None:
     user_id = update.effective_user.id
