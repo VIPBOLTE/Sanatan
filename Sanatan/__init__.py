@@ -30,6 +30,9 @@ BOT_USERNAME = BOT_USERNAME
 sudo_users = sudo_users
 OWNER_ID = OWNER_ID 
 
+from Config import development as Config
+
+sudo_users = Config.sudo_users
 application = Application.builder().token(BOT_TOKEN).build()
 Sanatan = Client("Sanatan", API_ID, API_HASH, bot_token=BOT_TOKEN)
 lol = AsyncIOMotorClient(MONGO_DB_URI)
