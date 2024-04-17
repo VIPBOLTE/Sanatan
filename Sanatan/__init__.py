@@ -15,20 +15,20 @@ logging.getLogger('httpx').setLevel(logging.WARNING)
 logging.getLogger("pyrate_limiter").setLevel(logging.ERROR)
 LOGGER = logging.getLogger(__name__)
 
-from Sanatan.Config import Development as Config
+from config import Development as config
 
 
-API_ID= Config.API_ID
-API_HASH= Config.API_HASH
-BOT_TOKEN = Config.BOT_TOKEN
-LOGGER_ID = Config.LOGGER_ID
-MONGO_DB_URI= Config.MONGO_DB_URI
-VIDEO_URL = Config.VIDEO_URL 
-SUPPORT_CHAT = Config.SUPPORT_CHAT 
-SUPPORT_CHANNEL= Config.SUPPORT_CHANNEL
-BOT_USERNAME = Config.BOT_USERNAME 
-sudo_users = Config.sudo_users
-OWNER_ID = Config.OWNER_ID 
+API_ID= config.API_ID
+API_HASH= config.API_HASH
+BOT_TOKEN = config.BOT_TOKEN
+LOGGER_ID = config.LOGGER_ID
+MONGO_DB_URI= config.MONGO_DB_URI
+VIDEO_URL = config.VIDEO_URL 
+SUPPORT_CHAT = config.SUPPORT_CHAT 
+SUPPORT_CHANNEL= config.SUPPORT_CHANNEL
+BOT_USERNAME = config.BOT_USERNAME 
+sudo_users = config.sudo_users
+OWNER_ID = config.OWNER_ID 
 
 application = Application.builder().token(BOT_TOKEN).build()
 Sanatan = Client("Sanatan", API_ID, API_HASH, bot_token=BOT_TOKEN)
