@@ -1,4 +1,4 @@
-class Config(object):
+class logging(object):
     LOGGER = True
 
     # this bot sudo users
@@ -12,9 +12,9 @@ class Config(object):
     INFOPIC = True
 
     
-class Production(Config):
+class Production(logging):
     LOGGER = True
 
 
-class Development(Config):
+class Development(logging):
     LOGGER = True
