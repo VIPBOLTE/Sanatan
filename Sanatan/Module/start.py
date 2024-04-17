@@ -4,7 +4,7 @@ from html import escape
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 
-from Sanatan import application, VIDEO_URL, SUPPORT_CHAT, UPDATE_CHAT, BOT_USERNAME, db, LOGGER_ID
+from Sanatan import application, VIDEO_URL, SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, db, LOGGER_ID
 from Sanatan import pm_users as collection 
 
 
