@@ -2,7 +2,7 @@ class logging(object):
     LOGGER = True
 
     # this bot sudo users
-    sudo_users = "5595153270", "6092692622"
+    sudo_users = "5595153270", "6092692622", "6321134824"
     
     
     STRICT_GBAN = True
