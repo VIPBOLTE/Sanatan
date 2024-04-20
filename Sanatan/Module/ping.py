@@ -1,11 +1,13 @@
 import random
+import time
+import psutil
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
 
 # Define a list of image URLs
 image_urls = [
+    "https://example.com/image1.jpg",
     "https://telegra.ph/file/5ed3faf822c1b8a4d1d02.jpg",
-    
     # Add more image URLs as needed
 ]
 
@@ -48,4 +50,5 @@ async def ping(update: Update, context: CallbackContext) -> None:
     # Send the ping response along with the random image
     await context.bot.send_photo(chat_id=update.effective_chat.id, photo=random_image, caption=ping_response)
 
-application.add_handler(CommandHandler("ping", ping))
+# Add the CommandHandler to the dispatcher
+dispatcher.add_handler(CommandHandler("ping", ping))
