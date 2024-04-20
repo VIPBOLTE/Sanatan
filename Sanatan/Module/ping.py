@@ -4,6 +4,8 @@ import psutil
 from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
 
+
+from Sanatan import application
 # Define a list of image URLs
 image_urls = [
     "https://telegra.ph/file/81df55fc1b39927769239.jpg",
@@ -51,4 +53,4 @@ async def ping(update: Update, context: CallbackContext) -> None:
     await context.bot.send_photo(chat_id=update.effective_chat.id, photo=random_image, caption=ping_response)
 
 # Add the CommandHandler to the dispatcher
-dispatcher.add_handler(CommandHandler("ping", ping))
+application.add_handler(CommandHandler("ping", ping))
