@@ -114,8 +114,8 @@ async def button(update: Update, context: CallbackContext) -> None:
         
         keyboard = [
             [InlineKeyboardButton("ADD ME", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
-            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/MUSIC_CHAT_GRP'),
-            InlineKeyboardButton("UPDATES", url=f'https://t.me/Fancy_Waifu_Husbando_Updates')],
+            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/goku_groupz'),
+            InlineKeyboardButton("UPDATES", url=f'https://t.me/channelz_k')],
             [InlineKeyboardButton("HELP", callback_data='help')],
             [InlineKeyboardButton("SOURCE", url=f'https://github.com/ishu9805')]
         ]
