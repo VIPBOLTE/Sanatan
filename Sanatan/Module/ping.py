@@ -6,7 +6,7 @@ from telegram.ext import CommandHandler, CallbackContext
 
 # Define a list of image URLs
 image_urls = [
-    "https://example.com/image1.jpg",
+    "https://telegra.ph/file/81df55fc1b39927769239.jpg",
     "https://telegra.ph/file/5ed3faf822c1b8a4d1d02.jpg",
     # Add more image URLs as needed
 ]
