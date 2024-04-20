@@ -46,8 +46,8 @@ GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/channelz_k")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/goku_groupz") 
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "channelz_k")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "goku_groupz") 
 
 sudo_users = "5595153270", "6092692622"
 
@@ -63,14 +63,4 @@ confirmer = {}
 
 
 
-if SUPPORT_CHANNEL:
-    if not re.match("(?:http|https)://", SUPPORT_CHANNEL):
-        raise SystemExit(
-            "[ERROR] - Your SUPPORT_CHANNEL url is wrong. Please ensure that it starts with https://"
-        )
-
-if SUPPORT_CHAT:
-    if not re.match("(?:http|https)://", SUPPORT_CHAT):
-        raise SystemExit(
-            "[ERROR] - Your SUPPORT_CHAT url is wrong. Please ensure that it starts with https://"
-)
+       
