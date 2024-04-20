@@ -10,9 +10,6 @@ from config import SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, LOGGER_ID, OWNER
 
 
 IMG_URL = [
-"https://telegra.ph/file/3134ed3b57eb051b8c363.jpg",
-"https://telegra.ph/file/5a2cbb9deb62ba4b122e4.jpg",
-"https://telegra.ph/file/cb09d52a9555883eb0f61.jpg", 
 "https://telegra.ph/file/5ed3faf822c1b8a4d1d02.jpg"
 
 ]
