@@ -6,7 +6,17 @@ from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 
 from Sanatan import application, db
 from Sanatan import pm_users as collection 
-from config import VIDEO_URL, SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, LOGGER_ID
+from config import SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, LOGGER_ID, OWNER_USERNAME
+
+
+IMG_URL = [
+"https://telegra.ph/file/3134ed3b57eb051b8c363.jpg",
+"https://telegra.ph/file/5a2cbb9deb62ba4b122e4.jpg",
+"https://telegra.ph/file/cb09d52a9555883eb0f61.jpg"
+
+]
+
+
 
 async def start(update: Update, context: CallbackContext) -> None:
     user_id = update.effective_user.id
@@ -48,29 +58,29 @@ async def start(update: Update, context: CallbackContext) -> None:
         """
         
         keyboard = [
-            [InlineKeyboardButton("ADD ME", url=f'http://t.me/Fancy_Waifu_Husbando_Bot?startgroup=new')],
-            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/MUSIC_CHAT_GRP'),
-            InlineKeyboardButton("UPDATES", url=f'https://t.me/Fancy_Waifu_Husbando_Updates')],
+            [InlineKeyboardButton("ADD ME", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
+            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
+            InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
-            [InlineKeyboardButton("SOURCE", url=f'https://github.com/ishu9805')]
+            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
-        video_url = random.choice(VIDEO_URL)
+        photo_url = random.choice(IMG_URL)
 
-        await context.bot.send_video(chat_id=update.effective_chat.id, video=video_url, caption=caption, reply_markup=reply_markup, parse_mode='markdown')
+        await context.bot.send_photo(chat_id=update.effective_chat.id, photo=photo_url, caption=caption, reply_markup=reply_markup, parse_mode='markdown')
 
     else:
-        video_url = random.choice(VIDEO_URL)
+        photo_url = random.choice(IMG_URL)
         keyboard = [
-            [InlineKeyboardButton("ADD ME", url=f'http://t.me/Fancy_Waifu_Husbando_Bot?startgroup=new')],
-            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/MUSIC_CHAT_GRP'),
-            InlineKeyboardButton("UPDATES", url=f'https://t.me/Fancy_Waifu_Husbando_Updates')],
+            [InlineKeyboardButton("ADD ME", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
+            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
+            InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
-            [InlineKeyboardButton("SOURCE", url=f'https://t.me/alone_x_hater')]
+            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
         ]
         
         reply_markup = InlineKeyboardMarkup(keyboard)
-        await context.bot.send_video(chat_id=update.effective_chat.id, video=video_url, caption="🎴Alive!?... \n connect to me in PM For more information ",reply_markup=reply_markup )
+        await context.bot.send_photo(chat_id=update.effective_chat.id, photo=photo_url, caption="🎴Alive!?... \n connect to me in PM For more information ",reply_markup=reply_markup )
 
 async def button(update: Update, context: CallbackContext) -> None:
     query = update.callback_query
@@ -114,10 +124,10 @@ async def button(update: Update, context: CallbackContext) -> None:
         
         keyboard = [
             [InlineKeyboardButton("ADD ME", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
-            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/goku_groupz'),
-            InlineKeyboardButton("UPDATES", url=f'https://t.me/channelz_k')],
+            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
+            InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
-            [InlineKeyboardButton("SOURCE", url=f'https://github.com/ishu9805')]
+            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
