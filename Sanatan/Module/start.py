@@ -6,7 +6,7 @@ from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 
 from Sanatan import application, db
 from Sanatan import pm_users as collection 
-from config import SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, LOGGER_ID, OWNER_USERNAME
+from config import SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, LOGGER_ID, OWNER_USERNAME, DEVELOP
 
 
 IMG_URL = [
@@ -75,7 +75,8 @@ async def start(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
-            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
+            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')
+            InlineKeyboardButton("OWNER", url=f'https://t.me/{DEVELOP}')]
         ]
         
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -126,7 +127,8 @@ async def button(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
-            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
+            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')
+            InlineKeyboardButton("OWNER", url=f'https://t.me/{DEVELOP}')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
