@@ -1,6 +1,6 @@
 {
-    "name": "Goku_bolte",
-    "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
+    "name": "GOKU X HUSBANDOES",
+    "description": "A Telegram husbandi Bot, written in Python with Python-telegram-bot and Py-Tgcalls.",
     "logo": "https://telegra.ph/file/21c69049c4855ac0a035b.jpg",
     "keywords": [
     "python3",
@@ -9,7 +9,7 @@
     "goku",
     "husbendoBot",
     "telegram-bot",
-    "pyrogram"
+    "python-telegram-bot"
     ],
     "env": {
       "API_ID": {
@@ -52,13 +52,18 @@
         "value": "",
         "required": false
       },
-       "SUPPORT_GROUP": {
-         "description": "", 
+       "OWNER_USERNAME": {
+         "description": "telegram username", 
          "value": "", 
          "required": true
        }, 
         "SUPPORT_CHANNEL": {
-          "description": "", 
+          "description": "telegram channel", 
+          "value": "",
+          "required": true
+        },
+        "SUPPORT_GROUP": {
+          "description": "telegram channel", 
           "value": "",
           "required": true
         },
