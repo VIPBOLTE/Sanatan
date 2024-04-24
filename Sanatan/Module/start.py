@@ -60,7 +60,7 @@ async def start(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
-            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')
+            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}'), 
             InlineKeyboardButton("OWNER", url=f'https://t.me/{DEVELOP}')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -75,7 +75,7 @@ async def start(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
-            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')
+            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}'), 
             InlineKeyboardButton("OWNER", url=f'https://t.me/{DEVELOP}')]
         ]
         
@@ -127,7 +127,7 @@ async def button(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
-            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')
+            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}'), 
             InlineKeyboardButton("OWNER", url=f'https://t.me/{DEVELOP}')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
