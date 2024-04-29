@@ -92,7 +92,7 @@ async def upload(update: Update, context: CallbackContext) -> None:
             update.effective_message.reply_text("Character Added but no Database Channel Found, Consider adding one.")
         
     except Exception as e:
-        await update.message.reply_text(f'Character Upload Unsuccessful. Error: {str(e)}\nIf you think this is a source error, forward to: {SUPPORT_CHAT}')
+        await update.message.reply_text(f'Character Upload Unsuccessful. Error: {str(e)}\nIf you think this is a source error, forward to: https://t.me/{SUPPORT_CHAT}')
 
 async def delete(update: Update, context: CallbackContext) -> None:
     if str(update.effective_user.id) not in sudo_users:
