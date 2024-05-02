@@ -6,11 +6,13 @@ from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 
 from Sanatan import application, db
 from Sanatan import pm_users as collection 
-from config import SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, LOGGER_ID, OWNER_USERNAME, DEVELOP
+from config import SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, LOGGER_ID, OWNER_USERNAME
 
 
 IMG_URL = [
-"https://telegra.ph/file/5ed3faf822c1b8a4d1d02.jpg"
+"https://telegra.ph/file/3134ed3b57eb051b8c363.jpg",
+"https://telegra.ph/file/5a2cbb9deb62ba4b122e4.jpg",
+"https://telegra.ph/file/cb09d52a9555883eb0f61.jpg"
 
 ]
 
@@ -45,7 +47,7 @@ async def start(update: Update, context: CallbackContext) -> None:
         ***Heyyyy...***
 
 ***┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
-***✾ Wᴇʟᴄᴏᴍɪɴɢ ʏᴏᴜ ᴛᴏ ᴛʜᴇ ˹Sᴇᴀʟ Yᴏᴜʀ Hᴜsʙᴇɴᴅᴏ˼ 🫧***
+***✾ Wᴇʟᴄᴏᴍɪɴɢ ʏᴏᴜ ᴛᴏ ᴛʜᴇ Oᴛᴀᴋᴜ Cᴜʟᴛᴜʀᴇ***
 ***┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
 ***┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
 ***🍂 I ᴡɪʟʟ Sᴜᴍᴍᴏɴ Rᴀɴᴅᴏᴍ Cʜᴀʀᴀᴄᴛᴇʀs***
@@ -56,12 +58,11 @@ async def start(update: Update, context: CallbackContext) -> None:
         """
         
         keyboard = [
-            [InlineKeyboardButton("✥ 𝐀𝐝𝐝 𝐌𝐞 𝐢𝐧 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✥", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
-            [InlineKeyboardButton("👑𝐒𝐮𝐩𝐩𝐨𝐫𝐭👑", url=f'https://t.me/{SUPPORT_CHAT}'),
-            InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
-            [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
-            [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{OWNER_USERNAME}'), 
-            InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{DEVELOP}')]
+            [InlineKeyboardButton("ADD ME", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
+            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
+            InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
+            [InlineKeyboardButton("HELP", callback_data='help')],
+            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         photo_url = random.choice(IMG_URL)
@@ -71,12 +72,11 @@ async def start(update: Update, context: CallbackContext) -> None:
     else:
         photo_url = random.choice(IMG_URL)
         keyboard = [
-            [InlineKeyboardButton("✥ 𝐀𝐝𝐝 𝐌𝐞 𝐢𝐧 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✥", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
-            [InlineKeyboardButton("👑𝐒𝐮𝐩𝐩𝐨𝐫𝐭👑", url=f'https://t.me/{SUPPORT_CHAT}'),
-            InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
-            [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
-            [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{OWNER_USERNAME}'), 
-            InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{DEVELOP}')]
+            [InlineKeyboardButton("ADD ME", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
+            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
+            InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
+            [InlineKeyboardButton("HELP", callback_data='help')],
+            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
         ]
         
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -88,7 +88,7 @@ async def button(update: Update, context: CallbackContext) -> None:
 
     if query.data == 'help':
         help_text = """
-    ***🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲***
+    ***Help Section:***
     
 ***/guess: To Guess character (only works in group)***
 ***/fav: Add Your fav***
@@ -109,30 +109,31 @@ async def button(update: Update, context: CallbackContext) -> None:
 
         caption = f"""
         ***Hoyyyy...*** ✨
-    ***┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
-    ***✾ Wᴇʟᴄᴏᴍɪɴɢ ʏᴏᴜ ᴛᴏ ᴛʜᴇ ˹Sᴇᴀʟ Yᴏᴜʀ Hᴜsʙᴇɴᴅᴏ˼ 🫧***
-    ***┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
-    ***┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
-    ***🍂 I ᴡɪʟʟ Sᴜᴍᴍᴏɴ Rᴀɴᴅᴏᴍ Cʜᴀʀᴀᴄᴛᴇʀs***
-    ***Iɴ ʏᴏᴜʀ Gʀᴏᴜᴘ Cʜᴀᴛ.***
-    ***💮 Yᴏᴜ ᴄᴀɴ ᴄᴏʟʟᴇᴄᴛ ᴛʜᴇᴍ ᴀɴᴅ ᴅᴏ ᴛʀᴀᴅᴇ.***
-    ***┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
-    **"Tᴀᴘ ᴏɴ "Hᴇʟᴘ" ғᴏʀ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs.***
-    """
-    keyboard = [
-        [InlineKeyboardButton("✥ 𝐀𝐝𝐝 𝐌𝐞 𝐢𝐧 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✥", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
-        [InlineKeyboardButton("👑𝐒𝐮𝐩𝐩𝐨𝐫𝐭👑", url=f'https://t.me/{SUPPORT_CHAT}'),
-        InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
-        [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
-        [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{OWNER_USERNAME}'), 
-        InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{DEVELOP}')]
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    await context.bot.edit_message_caption(chat_id=update.effective_chat.id, message_id=query.message.message_id, caption=caption, reply_markup=reply_markup, parse_mode='markdown')
 
+***┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
+***✾ Wᴇʟᴄᴏᴍɪɴɢ ʏᴏᴜ ᴛᴏ ᴛʜᴇ Oᴛᴀᴋᴜ Cᴜʟᴛᴜʀᴇ***
+***┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
+***┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
+***🍂 I ᴡɪʟʟ Sᴜᴍᴍᴏɴ Rᴀɴᴅᴏᴍ Cʜᴀʀᴀᴄᴛᴇʀs***
+***Iɴ ʏᴏᴜʀ Gʀᴏᴜᴘ Cʜᴀᴛ.***
+***💮 Yᴏᴜ ᴄᴀɴ ᴄᴏʟʟᴇᴄᴛ ᴛʜᴇᴍ ᴀɴᴅ ᴅᴏ ᴛʀᴀᴅᴇ.***
+***┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
+***Tᴀᴘ ᴏɴ "Hᴇʟᴘ" ғᴏʀ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs.***
+        """
+
+        
+        keyboard = [
+            [InlineKeyboardButton("ADD ME", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
+            [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
+            InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
+            [InlineKeyboardButton("HELP", callback_data='help')],
+            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await context.bot.edit_message_caption(chat_id=update.effective_chat.id, message_id=query.message.message_id, caption=caption, reply_markup=reply_markup, parse_mode='markdown')
 
 
 application.add_handler(CallbackQueryHandler(button, pattern='^help$|^back$', block=False))
 start_handler = CommandHandler('start', start, block=False)
 application.add_handler(start_handler)
-
