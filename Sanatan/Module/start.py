@@ -63,7 +63,7 @@ async def start(update: Update, context: CallbackContext) -> None:
             InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
             [InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}'),
-            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
+            InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         photo_url = random.choice(IMG_URL)
@@ -78,7 +78,7 @@ async def start(update: Update, context: CallbackContext) -> None:
             InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
             [InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}'),
-            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
+            InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
         ]
         
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -130,7 +130,7 @@ async def button(update: Update, context: CallbackContext) -> None:
             InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("HELP", callback_data='help')],
             [InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}'),
-            [InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
+            InlineKeyboardButton("SOURCE", url=f'https://t.me/{OWNER_USERNAME}')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
