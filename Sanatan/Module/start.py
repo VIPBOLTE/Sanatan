@@ -6,7 +6,7 @@ from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 
 from Sanatan import application, db
 from Sanatan import pm_users as collection 
-from config import SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, LOGGER_ID, OWNER_USERNAME
+from config import SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, LOGGER_ID, OWNER_USERNAME, DEVELOP
 
 
 IMG_URL = [
@@ -62,8 +62,8 @@ async def start(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
-            [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{SUPPORT_CHANNEL}'),
-            InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{OWNER_USERNAME}')]
+            [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{OWNER_USERNAME}'),
+            InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{DEVELOP}')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         photo_url = random.choice(IMG_URL)
@@ -77,8 +77,8 @@ async def start(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
-            [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{SUPPORT_CHANNEL}'),
-            InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{OWNER_USERNAME}')]
+            [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{OWNER_USERNAME}'),
+            InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{DEVELOP}')]
         ]
         
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -129,8 +129,8 @@ async def button(update: Update, context: CallbackContext) -> None:
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
             InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
-            [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{SUPPORT_CHANNEL}'),
-            InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{OWNER_USERNAME}')]
+            [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{OWNER_USERNAME}'),
+            InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{DEVELOP}')]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
