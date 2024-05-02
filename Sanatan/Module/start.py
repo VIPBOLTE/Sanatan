@@ -106,33 +106,28 @@ async def button(update: Update, context: CallbackContext) -> None:
         await context.bot.edit_message_caption(chat_id=update.effective_chat.id, message_id=query.message.message_id, caption=help_text, reply_markup=reply_markup, parse_mode='markdown')
 
     elif query.data == 'back':
-
-        caption = f"""
-        ***Hoyyyy...*** ✨
-
-***┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
-***✾ Wᴇʟᴄᴏᴍɪɴɢ ʏᴏᴜ ᴛᴏ ᴛʜᴇ ˹Sᴇᴀʟ Yᴏᴜʀ Hᴜsʙᴇɴᴅᴏ˼ 🫧***
-***┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
-***┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
-***🍂 I ᴡɪʟʟ Sᴜᴍᴍᴏɴ Rᴀɴᴅᴏᴍ Cʜᴀʀᴀᴄᴛᴇʀs***
-***Iɴ ʏᴏᴜʀ Gʀᴏᴜᴘ Cʜᴀᴛ.***
-***💮 Yᴏᴜ ᴄᴀɴ ᴄᴏʟʟᴇᴄᴛ ᴛʜᴇᴍ ᴀɴᴅ ᴅᴏ ᴛʀᴀᴅᴇ.***
-***┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
-**"Tᴀᴘ ᴏɴ "Hᴇʟᴘ" ғᴏʀ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs.***
-        """
-
-        
-        keyboard = [
-            [InlineKeyboardButton("✥ 𝐀𝐝𝐝 𝐌𝐞 𝐢𝐧 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✥", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
-            [InlineKeyboardButton("👑𝐒𝐮𝐩𝐩𝐨𝐫𝐭👑", url=f'https://t.me/{SUPPORT_CHAT}'),
-            InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
-            [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
-            [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{OWNER_USERNAME}'), 
-            InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{DEVELOP}')]
-        ]
-        reply_markup = InlineKeyboardMarkup(keyboard)
-
-        await context.bot.edit_message_caption(chat_id=update.effective_chat.id, message_id=query.message.message_id, caption=caption, reply_markup=reply_markup, parse_mode='markdown')
+    caption = f"""
+    ***Hoyyyy...*** ✨
+    ***┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
+    ***✾ Wᴇʟᴄᴏᴍɪɴɢ ʏᴏᴜ ᴛᴏ ᴛʜᴇ ˹Sᴇᴀʟ Yᴏᴜʀ Hᴜsʙᴇɴᴅᴏ˼ 🫧***
+    ***┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
+    ***┏━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
+    ***🍂 I ᴡɪʟʟ Sᴜᴍᴍᴏɴ Rᴀɴᴅᴏᴍ Cʜᴀʀᴀᴄᴛᴇʀs***
+    ***Iɴ ʏᴏᴜʀ Gʀᴏᴜᴘ Cʜᴀᴛ.***
+    ***💮 Yᴏᴜ ᴄᴀɴ ᴄᴏʟʟᴇᴄᴛ ᴛʜᴇᴍ ᴀɴᴅ ᴅᴏ ᴛʀᴀᴅᴇ.***
+    ***┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
+    **"Tᴀᴘ ᴏɴ "Hᴇʟᴘ" ғᴏʀ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs.***
+    """
+    keyboard = [
+        [InlineKeyboardButton("✥ 𝐀𝐝𝐝 𝐌𝐞 𝐢𝐧 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✥", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
+        [InlineKeyboardButton("👑𝐒𝐮𝐩𝐩𝐨𝐫𝐭👑", url=f'https://t.me/{SUPPORT_CHAT}'),
+        InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
+        [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
+        [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{OWNER_USERNAME}'), 
+        InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{DEVELOP}')]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    await context.bot.edit_message_caption(chat_id=update.effective_chat.id, message_id=query.message.message_id, caption=caption, reply_markup=reply_markup, parse_mode='markdown')
 
 
 application.add_handler(CallbackQueryHandler(button, pattern='^help$|^back$', block=False))
