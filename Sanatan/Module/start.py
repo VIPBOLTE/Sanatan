@@ -60,7 +60,7 @@ async def start(update: Update, context: CallbackContext) -> None:
         keyboard = [
             [InlineKeyboardButton("✥ 𝐀𝐝𝐝 𝐌𝐞 𝐢𝐧 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✥", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
-            InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
+            InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
             [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{SUPPORT_CHANNEL}'),
             InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{OWNER_USERNAME}')]
@@ -75,7 +75,7 @@ async def start(update: Update, context: CallbackContext) -> None:
         keyboard = [
             [InlineKeyboardButton("✥ 𝐀𝐝𝐝 𝐌𝐞 𝐢𝐧 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✥", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
-            InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
+            InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
             [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{SUPPORT_CHANNEL}'),
             InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{OWNER_USERNAME}')]
@@ -127,7 +127,7 @@ async def button(update: Update, context: CallbackContext) -> None:
         keyboard = [
             [InlineKeyboardButton("✥ 𝐀𝐝𝐝 𝐌𝐞 𝐢𝐧 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✥", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
             [InlineKeyboardButton("SUPPORT", url=f'https://t.me/{SUPPORT_CHAT}'),
-            InlineKeyboardButton("UPDATES", url=f'https://t.me/{SUPPORT_CHANNEL}')],
+            InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
             [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
             [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{SUPPORT_CHANNEL}'),
             InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{OWNER_USERNAME}')]
