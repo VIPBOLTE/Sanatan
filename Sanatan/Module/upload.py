@@ -161,7 +161,7 @@ async def update(update: Update, context: CallbackContext) -> None:
 
         
         if args[1] == 'img_url':
-            await context.bot.delete_message(chat_id=CHARA_CHANNEL_ID, message_id=character['message_id'])
+            await context.bot.delete_message(chat_id=LOGGER_ID, message_id=character['message_id'])
             message = await context.bot.send_photo(
                 chat_id=LOGGER_ID,
                 photo=new_value,
