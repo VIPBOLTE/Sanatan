@@ -213,7 +213,7 @@ async def check(update: Update, context: CallbackContext) -> None:
         await update.message.reply_text(f"Eʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ: {e}")
 
 
-UPLOAD_HANDLER = CommandHandler('upload', upload, block=False)
+UPLOAD_HANDLER = CommandHandler('pupload', upload, block=False)
 application.add_handler(UPLOAD_HANDLER)
 DELETE_HANDLER = CommandHandler('delete', delete, block=False)
 application.add_handler(DELETE_HANDLER)
