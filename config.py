@@ -14,7 +14,7 @@ BOT_TOKEN = getenv("BOT_TOKEN")
 # Add Owner Username without @ 
 OWNER_USERNAME = getenv("OWNER_USERNAME", "Zindagi_hai_tere_nal")
 #bot ko jiske liye bna rha wo hai DEVELOP without @
-DEVELOP = getenv(" DEVELOP","OFFICIAL_ZTX")
+DEVELOP = getenv(" DEVELOP","esharaim")
 # Get Your bot username
 BOT_USERNAME = getenv("BOT_USERNAME", "Husbandobot")
 # Don't Add style font 
