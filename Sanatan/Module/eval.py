@@ -55,7 +55,7 @@ async def send(msg, bot, update):
 
 
 async def evaluate(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if update.effective_message.from_user.id not in DEV_LIST:
+    if update.effective_message.from_user.id not in EVAL_ID:
         return
 
     bot = context.bot
@@ -63,7 +63,7 @@ async def evaluate(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def execute(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if update.effective_message.from_user.id not in DEV_LIST:
+    if update.effective_message.from_user.id not in EVAL_ID:
         return
 
     bot = context.bot
@@ -123,7 +123,7 @@ async def do(func, bot, update):
 
 
 async def clear(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if update.effective_message.from_user.id not in DEV_LIST:
+    if update.effective_message.from_user.id not in EVAL_ID:
         return
 
     bot = context.bot
