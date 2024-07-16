@@ -5,7 +5,8 @@ from telegram import Update
 from telegram.ext import CommandHandler, CallbackContext
 
 
-from Sanatan import application, sudo_users
+from Sanatan import application
+from config import sudo_users
 # Define a list of image URLs
 image_urls = [
     "https://telegra.ph/file/81df55fc1b39927769239.jpg",
