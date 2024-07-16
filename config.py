@@ -51,8 +51,9 @@ GIT_TOKEN = getenv(
 SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "channelz_k")
 SUPPORT_CHAT = getenv("SUPPORT_CHAT", "goku_groupz") 
 
-sudo_users = "5595153270", "6092692622"
-
+# sudo_users
+sudo_users = "5595153270", "6176582997"
+    
 BANNED_USERS = filters.user()
 adminlist = {}
 lyrical = {}
