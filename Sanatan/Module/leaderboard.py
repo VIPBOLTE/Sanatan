@@ -9,7 +9,7 @@ from Sanatan import (application,
                     user_collection, top_global_groups_collection, top_global_groups_collection, 
                     group_user_totals_collection)
 from config import OWNER_ID
-from Sanatan import sudo_users as SUDO_USERS 
+from config import sudo_users as SUDO_USERS 
 LEADERBOARD_URL = [ 
              "https://telegra.ph/file/5ed3faf822c1b8a4d1d02.jpg", 
              "https://telegra.ph/file/81df55fc1b39927769239.jpg", 
