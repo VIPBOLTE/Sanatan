@@ -29,7 +29,7 @@ SUPPORT_CHANNEL= SUPPORT_CHANNEL
 BOT_USERNAME = BOT_USERNAME 
 OWNER_ID = OWNER_ID 
 
-from Sanatan.logging import Development as logging
+from config import Development as logging
 
 sudo_users = logging.sudo_users
 application = Application.builder().token(BOT_TOKEN).build()
