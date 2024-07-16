@@ -17,10 +17,9 @@ from Sanatan import db, collection, user_collection
 from Sanatan import (application, VIDEO_URL, OWNER_ID,
                     user_collection, top_global_groups_collection, top_global_groups_collection, 
                     group_user_totals_collection)
-from config import SUPPORT_CHANNEL, SUPPORT_CHAT
+from config import SUPPORT_CHANNEL, SUPPORT_CHAT, OWNER_ID
 shops_collection = db["shops"]
 # Owner ID
-OWNER_ID = "5595153270"
 
 # Logging configuration
 logging.basicConfig(
