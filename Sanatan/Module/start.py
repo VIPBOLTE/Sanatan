@@ -1,33 +1,46 @@
 import random
 from html import escape 
+
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
-from telegram.ext import CallbackContext, CommandHandler
+from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
+
 from Sanatan import application, db
 from Sanatan import pm_users as collection 
 from config import SUPPORT_CHAT, SUPPORT_CHANNEL, BOT_USERNAME, LOGGER_ID, OWNER_USERNAME, DEVELOP
 
+
 IMG_URL = [
-    "https://telegra.ph/file/5ed3faf822c1b8a4d1d02.jpg"
+"https://telegra.ph/file/5ed3faf822c1b8a4d1d02.jpg"
+
 ]
 
-async def is_member(chat_id: str, user_id: int, context: CallbackContext) -> bool:
-    try:
-        member = await context.bot.get_chat_member(chat_id, user_id)
-        return member.status in ['member', 'administrator', 'creator']
-    except Exception as e:
-        print(f"Error checking membership: {e}")
-        return False
+
 
 async def start(update: Update, context: CallbackContext) -> None:
     user_id = update.effective_user.id
     first_name = update.effective_user.first_name
     username = update.effective_user.username
 
-    is_in_support_chat = await is_member(SUPPORT_CHAT, user_id, context)
-    is_in_support_channel = await is_member(SUPPORT_CHANNEL, user_id, context)
+    user_data = await collection.find_one({"_id": user_id})
 
-    if is_in_support_chat and is_in_support_channel:
-        # Regular start message
+    if user_data is None:
+        
+        await collection.insert_one({"_id": user_id, "first_name": first_name, "username": username})
+        
+        await context.bot.send_message(chat_id=LOGGER_ID, 
+                                       text=f"New user Started The Bot..\n User: <a href='tg://user?id={user_id}'>{escape(first_name)})</a>", 
+                                       parse_mode='HTML')
+    else:
+        
+        if user_data['first_name'] != first_name or user_data['username'] != username:
+            
+            await collection.update_one({"_id": user_id}, {"$set": {"first_name": first_name, "username": username}})
+
+    
+
+    if update.effective_chat.type== "private":
+        
+        
         caption = f"""
         ***Heyyyy...***
 
@@ -41,6 +54,7 @@ async def start(update: Update, context: CallbackContext) -> None:
 ***┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
 ***Tᴀᴘ ᴏɴ "Hᴇʟᴘ" ғᴏʀ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs.***
         """
+        
         keyboard = [
             [InlineKeyboardButton("✥ 𝐀𝐝𝐝 𝐌𝐞 𝐢𝐧 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✥", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
             [InlineKeyboardButton("👑𝐒𝐮𝐩𝐩𝐨𝐫𝐭👑", url=f'https://t.me/{SUPPORT_CHAT}'),
@@ -51,19 +65,22 @@ async def start(update: Update, context: CallbackContext) -> None:
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         photo_url = random.choice(IMG_URL)
+
         await context.bot.send_photo(chat_id=update.effective_chat.id, photo=photo_url, caption=caption, reply_markup=reply_markup, parse_mode='markdown')
+
     else:
-        # Promotion message to join support chat and channel
+        photo_url = random.choice(IMG_URL)
         keyboard = [
-            [InlineKeyboardButton("👑 Support Group 👑", url=f'https://t.me/{SUPPORT_CHAT}')],
-            [InlineKeyboardButton("🧑‍🔧 Support Channel 🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')]
+            [InlineKeyboardButton("✥ 𝐀𝐝𝐝 𝐌𝐞 𝐢𝐧 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✥", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
+            [InlineKeyboardButton("👑𝐒𝐮𝐩𝐩𝐨𝐫𝐭👑", url=f'https://t.me/{SUPPORT_CHAT}'),
+            InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
+            [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
+            [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{OWNER_USERNAME}'),
+            InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{DEVELOP}')]
         ]
+        
         reply_markup = InlineKeyboardMarkup(keyboard)
-        await context.bot.send_message(
-            chat_id=update.effective_chat.id,
-            text="Please join our support chat and channel before using the bot. After joining, use the /start command again.",
-            reply_markup=reply_markup
-        )
+        await context.bot.send_photo(chat_id=update.effective_chat.id, photo=photo_url, caption="🎴Alive!?... \n connect to me in PM For more information ",reply_markup=reply_markup )
 
 async def button(update: Update, context: CallbackContext) -> None:
     query = update.callback_query
@@ -85,9 +102,11 @@ async def button(update: Update, context: CallbackContext) -> None:
    """
         help_keyboard = [[InlineKeyboardButton("⤾ Bᴀᴄᴋ", callback_data='back')]]
         reply_markup = InlineKeyboardMarkup(help_keyboard)
+        
         await context.bot.edit_message_caption(chat_id=update.effective_chat.id, message_id=query.message.message_id, caption=help_text, reply_markup=reply_markup, parse_mode='markdown')
 
     elif query.data == 'back':
+
         caption = f"""
         ***Hoyyyy...*** ✨
 
@@ -98,4 +117,25 @@ async def button(update: Update, context: CallbackContext) -> None:
 ***🍂 I ᴡɪʟʟ Sᴜᴍᴍᴏɴ Rᴀɴᴅᴏᴍ Cʜᴀʀᴀᴄᴛᴇʀs***
 ***Iɴ ʏᴏᴜʀ Gʀᴏᴜᴘ Cʜᴀᴛ.***
 ***💮 Yᴏᴜ ᴄᴀɴ ᴄᴏʟʟᴇᴄᴛ ᴛʜᴇᴍ ᴀɴᴅ ᴅᴏ ᴛʀᴀᴅᴇ.***
-***┗━━━━━━━━━━━━━━━━━━━━━━━━
+***┗━━━━━━━━━━━━━━━━━━━━━━━━━━━⧫***
+***Tᴀᴘ ᴏɴ "Hᴇʟᴘ" ғᴏʀ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs.***
+        """
+
+        
+        keyboard = [
+            [InlineKeyboardButton("✥ 𝐀𝐝𝐝 𝐌𝐞 𝐢𝐧 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩 ✥", url=f'http://t.me/{BOT_USERNAME}?startgroup=new')],
+            [InlineKeyboardButton("👑𝐒𝐮𝐩𝐩𝐨𝐫𝐭👑", url=f'https://t.me/{SUPPORT_CHAT}'),
+            InlineKeyboardButton("🧑‍🔧𝐔𝐩𝐝𝐚𝐭𝐞𝐬🧑‍🔧", url=f'https://t.me/{SUPPORT_CHANNEL}')],
+            [InlineKeyboardButton("🐲𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬🐲", callback_data='help')],
+            [InlineKeyboardButton("🎭𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫🎭", url=f'https://t.me/{OWNER_USERNAME}'),
+            InlineKeyboardButton("𝐎𝐖𝐍𝐄𝐑🗯", url=f'https://t.me/{DEVELOP}')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await context.bot.edit_message_caption(chat_id=update.effective_chat.id, message_id=query.message.message_id, caption=caption, reply_markup=reply_markup, parse_mode='markdown')
+
+
+application.add_handler(CallbackQueryHandler(button, pattern='^help$|^back$', block=False))
+start_handler = CommandHandler('start', start, block=False)
+application.add_handler(start_handler)
+
