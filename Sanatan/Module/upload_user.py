@@ -2,7 +2,7 @@ import urllib.request
 from pymongo import ReturnDocument
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import CommandHandler, CallbackContext, CallbackQueryHandler
-from Sanatan import application collection, db
+from Sanatan import application, collection, db
 from config import LOGGER_ID, SUPPORT_CHAT, OWNER_USERNAME, sudo_users
 
 WRONG_FORMAT_TEXT = """
