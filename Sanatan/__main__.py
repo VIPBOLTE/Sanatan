@@ -98,7 +98,7 @@ async def send_image(update: Update, context: CallbackContext) -> None:
         2: '🟣 Rᴀʀᴇ',
         3: '🟡 Lᴇɢᴇɴᴅᴀʀʏ',
         4: '🔮 Lɪᴍɪᴛᴇᴅ',
-        5: '💸 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐄𝐝𝐢𝐭𝐢𝐨𝐧'
+        5: '🫧 Pʀᴇᴍɪᴜᴍ'
     }
     
     spawn_counts = {
@@ -106,7 +106,7 @@ async def send_image(update: Update, context: CallbackContext) -> None:
         '🟣 Rᴀʀᴇ': 3,
         '🟡 Lᴇɢᴇɴᴅᴀʀʏ': 4,
         '🔮 Lɪᴍɪᴛᴇᴅ': 2,
-        '💸 𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐄𝐝𝐢𝐭𝐢𝐨𝐧': 0  # Premium Edition won't spawn
+        '🫧 Pʀᴇᴍɪᴜᴍ': 0  # Premium Edition won't spawn
     }
 
     # Adjust spawn counts for Limited Edition and Special Edition
