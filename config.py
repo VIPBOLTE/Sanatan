@@ -10,7 +10,7 @@ load_dotenv()
 API_ID = int(getenv("API_ID", 28477444))
 API_HASH = getenv("API_HASH", "7cd9caeb99fdf37a5cf12b180e4b1b0b")
 # Get your token from @BotFather on Telegram.
-BOT_TOKEN = getenv("BOT_TOKEN")
+BOT_TOKEN = getenv("BOT_TOKEN","7116275578:AAHPONS1LMgJoQqc4a8zisEVjH3rH8lDjlQ")
 # Add Owner Username without @ 
 OWNER_USERNAME = getenv("OWNER_USERNAME", "Zindagi_hai_tere_nal")
 #bot ko jiske liye bna rha wo hai DEVELOP without @
