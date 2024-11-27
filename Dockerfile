@@ -66,8 +66,8 @@ RUN apt update && apt upgrade -y && \
 RUN pip3 install --upgrade pip setuptools
 
 # Copy your application files into the Docker container
-COPY . /root/utahimebot-
-WORKDIR /root/utahimebot-
+COPY . /root/sanatan-
+WORKDIR /root/sanatan-
 
 # Install Python dependencies from the requirements.txt file
 RUN pip3 install --no-cache-dir -U -r requirements.txt
