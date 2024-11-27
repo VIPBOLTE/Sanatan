@@ -10,3 +10,5 @@ tgcrypto
 python-dotenv
 cachetools 
 psutil
+flask==2.3.2
+Flask[async]
